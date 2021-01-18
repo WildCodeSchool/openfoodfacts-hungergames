@@ -23,11 +23,10 @@ export const getUserInsightLocalStorage = () => {
 };
 
 export const saveUserInsightLocalStorage = (count, level, ids) => {
-  // A retirer - temporaire, au cas ou ids soit encore une string
-  if (ret && ret.ids && typeof(ret.ids) === 'string')
-    ret.ids = [];
-
   const ret = JSON.parse(localStorage.userInsight);
+  // A retirer - temporaire, au cas ou ids soit encore une string
+  if (ret && ret.ids && typeof ret.ids === "string") ret.ids = [];
+
   if (count) ret.count = count;
   if (level) ret.level = level;
   if (Array.isArray(ids)) ret.ids = ids;
