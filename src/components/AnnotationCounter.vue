@@ -1,7 +1,7 @@
 <template>
   <article>
     <p>
-      {{ $t("game.next_level") }}Prochain niveau : {{ annotatedCount }} /
+      {{ $t("game.next_level") }}: {{ annotatedCount }} /
       {{ levelToReach }}
     </p>
   </article>
