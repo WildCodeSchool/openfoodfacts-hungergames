@@ -79,6 +79,17 @@
       <LoadingSpinner :show="loading" />
       <div v-if="noRemainingQuestion">
         <h2>{{ $t("questions.no_questions_remaining") }}</h2>
+        <div>
+          <!-- :class="{ selected: insightType === selectedInsightType }" -->
+          <button
+            class="tag"
+            v-for="insightType of availableInsightTypes"
+            :key="insightType"
+            @click="selectInsightType(insightType)"
+          >
+            {{ $t("questions." + insightType) }}
+          </button>
+        </div>
       </div>
     </div>
 
@@ -100,7 +111,7 @@ import {
   updateURLParam,
   getURLParam,
   NO_QUESTION_LEFT,
-  // insightTypesNames,
+  insightTypesNames,
   getInitialInsightType,
   reformatValueTag,
 } from "../utils/utilsQuestionView";
@@ -172,11 +183,11 @@ export default {
 
     // if (this.lastAnnotations.length > 10) this.lastAnnotations.shift();
     // },
-    // selectInsightType: function (insightType) {
-    //   this.selectedInsightType = insightType;
-    //   this.valueTag = "";
-    //   this.is_fav = false;
-    // },
+    selectInsightType: function (insightType) {
+      this.selectedInsightType = insightType;
+      this.valueTag = "";
+      this.is_fav = false;
+    },
     annotate: function (annotation) {
       this.seenInsightIds.add(this.currentQuestion.insight_id);
 
@@ -233,9 +244,9 @@ export default {
     },
   },
   computed: {
-    // availableInsightTypes: function () {
-    //   return Object.keys(insightTypesNames);
-    // },
+    availableInsightTypes: function () {
+      return Object.keys(insightTypesNames);
+    },
     currentQuestionImageUrl: function () {
       if (this.currentQuestion.source_image_url) {
         return this.currentQuestion.source_image_url;

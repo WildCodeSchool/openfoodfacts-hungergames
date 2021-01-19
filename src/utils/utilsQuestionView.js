@@ -22,7 +22,7 @@ const getURLParam = (key) => {
 const NO_QUESTION_LEFT = "NO_QUESTION_LEFT";
 
 const insightTypesNames = {
-  label: "label",
+  // label: "label",
   category: "category",
   brand: "brand",
 };
