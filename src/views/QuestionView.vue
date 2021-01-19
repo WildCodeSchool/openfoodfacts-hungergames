@@ -149,6 +149,7 @@ export default {
           );
         }, 500);
       }
+
       this.is_fav = !this.is_fav;
     },
     rotateImage() {
@@ -273,6 +274,16 @@ export default {
       );
     },
   },
+  beforeRouteUpdate(to, from, next) {
+    if (this.valueTag) {
+      this.valueTag = "";
+      this.is_fav = false;
+      updateURLParam("value_tag", this.valueTag);
+    }
+    this.selectedInsightType = to.query.type;
+    updateURLParam("type", this.selectedInsightType);
+    next();
+  },
   mounted() {
     updateURLParam("type", this.selectedInsightType);
     const userids = getUserInsightLocalStorage();
@@ -295,6 +306,8 @@ export default {
           if (!oldQuery || newQuery[nameParam] !== oldQuery[nameParam])
             updateURLParam(nameParam, newQuery[nameParam]);
         }
+        this.$route.query.value_tag = this.valueTag;
+
         this.questionBuffer = [];
         if (!newQuery["value_tag"]) this.currentQuestion = null;
         this.loadQuestions();
