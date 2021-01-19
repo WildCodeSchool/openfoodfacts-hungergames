@@ -25,12 +25,11 @@
 .buttonsContainer {
   max-height: 4rem;
 }
-.otherImg {
-  display: none;
-}
+.otherImg,
 .annotationColumn {
   display: none;
 }
+
 .currentQuestionContainer {
   display: grid;
   justify-content: space-between;
