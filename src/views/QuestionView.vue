@@ -43,7 +43,6 @@
 
       <article class="imgContainer">
         <Product :barcode="currentQuestionBarcode" />
-        <!-- <img :class="[imageRotationClassName]" :src="currentQuestionImageUrl" /> -->
       </article>
       <article class="buttonsContainer">
         <button
@@ -93,11 +92,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Both divs bellow are hidden but not erased for future use. -->
-    <!-- <div class="otherImg">
-      <Product :barcode="currentQuestionBarcode" />
-    </div> -->
   </section>
 </template>
 

@@ -27,13 +27,6 @@
 .buttonsContainer {
   max-height: 4rem;
 }
-/* .otherImg,
-.annotationColumn {
-  display: none;
-} */
-.otherImg {
-  height: 40rem;
-}
 
 .currentQuestionContainer {
   display: grid;
