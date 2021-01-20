@@ -4,8 +4,7 @@
     <div>
       <h2>{{ $t("settings.settings") }}</h2>
       <form>
-        <div>
-          <div>
+ 
             <div>{{ $t("settings.language") }}</div>
             <select v-model="selectedLang">
               <option
@@ -16,8 +15,7 @@
                 {{ lang.toUpperCase() }}
               </option>
             </select>
-          </div>
-        </div>
+ 
         <button @click="saveLang">{{ $t("settings.save") }}</button>
 
       </form>
