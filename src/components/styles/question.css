@@ -60,6 +60,8 @@
 }
 
 .buttonsContainer {
+  max-width: 650px;
+  justify-self: center;
   display: grid;
   justify-content: space-around;
   align-items: center;
@@ -69,22 +71,27 @@
 .buttonsContainer button {
   border: none;
   height: 100%;
-  padding: 0.25rem 0;
+  padding: 0.25rem 0 !important;
   text-align: center;
-  background-color: var(--OFFlightBlue);
+  border-radius: 0.3rem !important;
 }
 .buttonsContainer button:hover {
   cursor: pointer;
+  box-shadow: 0 0 0.1rem 0.1rem var(--OFFblack) !important;
 }
 .buttonsContainer button:active {
   box-shadow: inset 0 0 0.75rem #f9f9f9;
 }
 .buttonsContainer button img {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
 }
 .red {
   background-color: var(--OFFred) !important;
+}
+.blue {
+  background-color: var(--OFFlightBlue) !important;
+  color: var(--OFFblack) !important;
 }
 .yellow {
   background-color: var(--OFFyellow) !important;

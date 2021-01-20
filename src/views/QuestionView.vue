@@ -51,18 +51,18 @@
           class="ui button red annotate"
           @click="annotate(0)"
         >
-          <img class="buttonImg" src="../assets/no.png" alt="Back" />
+          <img class="buttonImg" src="../assets/no.svg" alt="No" />
         </button>
         <button
           data-inverted
           data-tooltip="Shortcut: k"
-          class="ui button annotate"
+          class="ui button blue annotate"
           @click="annotate(-1)"
         >
           {{ $t("questions.skip") }}
         </button>
         <button class="ui button yellow annotate">
-          <img class="buttonImg" src="../assets/back.png" alt="Back" />
+          <img class="buttonImg" src="../assets/back.svg" alt="Back" />
         </button>
         <button
           data-inverted
@@ -70,7 +70,7 @@
           class="ui button green annotate"
           @click="annotate(1)"
         >
-          <img class="buttonImg" src="../assets/yes.png" alt="Back" />
+          <img class="buttonImg" src="../assets/yes.svg" alt="Yes" />
         </button>
       </article>
     </div>
@@ -79,6 +79,17 @@
       <LoadingSpinner :show="loading" />
       <div v-if="noRemainingQuestion">
         <h2>{{ $t("questions.no_questions_remaining") }}</h2>
+        <div>
+          <!-- :class="{ selected: insightType === selectedInsightType }" -->
+          <button
+            class="tag"
+            v-for="insightType of availableInsightTypes"
+            :key="insightType"
+            @click="selectInsightType(insightType)"
+          >
+            {{ $t("questions." + insightType) }}
+          </button>
+        </div>
       </div>
     </div>
 
@@ -100,7 +111,7 @@ import {
   updateURLParam,
   getURLParam,
   NO_QUESTION_LEFT,
-  // insightTypesNames,
+  insightTypesNames,
   getInitialInsightType,
   reformatValueTag,
 } from "../utils/utilsQuestionView";
@@ -149,6 +160,7 @@ export default {
           );
         }, 500);
       }
+
       this.is_fav = !this.is_fav;
     },
     rotateImage() {
@@ -171,11 +183,11 @@ export default {
 
     // if (this.lastAnnotations.length > 10) this.lastAnnotations.shift();
     // },
-    // selectInsightType: function (insightType) {
-    //   this.selectedInsightType = insightType;
-    //   this.valueTag = "";
-    //   this.is_fav = false;
-    // },
+    selectInsightType: function (insightType) {
+      this.selectedInsightType = insightType;
+      this.valueTag = "";
+      this.is_fav = false;
+    },
     annotate: function (annotation) {
       this.seenInsightIds.add(this.currentQuestion.insight_id);
 
@@ -232,9 +244,9 @@ export default {
     },
   },
   computed: {
-    // availableInsightTypes: function () {
-    //   return Object.keys(insightTypesNames);
-    // },
+    availableInsightTypes: function () {
+      return Object.keys(insightTypesNames);
+    },
     currentQuestionImageUrl: function () {
       if (this.currentQuestion.source_image_url) {
         return this.currentQuestion.source_image_url;
@@ -273,6 +285,16 @@ export default {
       );
     },
   },
+  beforeRouteUpdate(to, from, next) {
+    if (this.valueTag) {
+      this.valueTag = "";
+      this.is_fav = false;
+      updateURLParam("value_tag", this.valueTag);
+    }
+    this.selectedInsightType = to.query.type;
+    updateURLParam("type", this.selectedInsightType);
+    next();
+  },
   mounted() {
     updateURLParam("type", this.selectedInsightType);
     const userids = getUserInsightLocalStorage();
@@ -295,6 +317,8 @@ export default {
           if (!oldQuery || newQuery[nameParam] !== oldQuery[nameParam])
             updateURLParam(nameParam, newQuery[nameParam]);
         }
+        this.$route.query.value_tag = this.valueTag;
+
         this.questionBuffer = [];
         if (!newQuery["value_tag"]) this.currentQuestion = null;
         this.loadQuestions();

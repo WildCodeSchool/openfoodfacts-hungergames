@@ -1,4 +1,5 @@
 <template>
+
   <section class="questionContainer">
     <div>
       <h2>{{ $t("settings.settings") }}</h2>
@@ -18,8 +19,8 @@
           </div>
         </div>
         <button @click="saveLang">{{ $t("settings.save") }}</button>
+
       </form>
-    </div>
   </section>
 </template>
 
@@ -44,3 +45,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@import "../components/styles/settings.css";
+</style>

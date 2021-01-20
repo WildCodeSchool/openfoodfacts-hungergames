@@ -1,7 +1,7 @@
 <template>
   <nav class="headerNav">
     <button class="headerButton" type="button" @click="setOpen()">
-      <img class="buttonImg" src="../assets/burger.png" alt="Menu" />
+      <img class="buttonImg" src="../assets/burger.svg" alt="Menu" />
     </button>
     <ul class="headerList" v-if="open">
       <li class="headerItem" @click="setOpen()">
