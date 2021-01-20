@@ -87,5 +87,11 @@
     "settings": "Impostazioni",
     "language": "Lingua",
     "save": "Salva"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

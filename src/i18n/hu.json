@@ -87,5 +87,11 @@
     "settings": "Beállítások",
     "language": "Nyelv",
     "save": "Mentés"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

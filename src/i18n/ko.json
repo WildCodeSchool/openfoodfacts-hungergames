@@ -87,5 +87,11 @@
     "settings": "설정",
     "language": "언어",
     "save": "저장하기"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }
