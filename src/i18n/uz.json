@@ -87,5 +87,11 @@
     "settings": "Sozlamalar",
     "language": "Language",
     "save": "Save"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

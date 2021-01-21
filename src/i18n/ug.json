@@ -87,5 +87,11 @@
     "settings": "تەڭشەك",
     "language": "تىل",
     "save": "ساقلاش"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

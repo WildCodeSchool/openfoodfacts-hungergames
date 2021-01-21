@@ -87,5 +87,11 @@
     "settings": "Mga setting",
     "language": "Wika",
     "save": "I-save"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

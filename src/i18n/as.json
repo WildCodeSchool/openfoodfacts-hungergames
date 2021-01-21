@@ -83,9 +83,10 @@
     "search": "Search",
     "number_of_results": "Number of results:"
   },
-  "settings": {
-    "settings": "Settings",
-    "language": "Language",
-    "save": "Save"
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

@@ -87,5 +87,11 @@
     "settings": "Cài đặt",
     "language": "Ngôn ngữ",
     "save": "Lưu"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }
