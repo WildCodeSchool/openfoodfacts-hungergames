@@ -109,6 +109,8 @@
   transform: translate(calc(var(--i, 0) / var(--n) * -100%));
 }
 .swiperContainer img {
+  box-sizing: border-box;
+  object-fit: contain;
   width: 100%;
   width: calc(100% / var(--n));
   user-select: none;
