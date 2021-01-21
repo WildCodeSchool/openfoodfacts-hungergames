@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@yaireo/tagify": "^3.20.3",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "swiper": "^5.4.5",
     "v-viewer": "^1.5.1",
     "vue": "^2.6.12",

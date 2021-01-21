@@ -87,5 +87,11 @@
     "settings": "Tənzimləmələr",
     "language": "Dil",
     "save": "Save"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

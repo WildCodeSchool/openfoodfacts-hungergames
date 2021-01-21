@@ -87,5 +87,11 @@
     "settings": "সেটিংস",
     "language": "ভাষা",
     "save": "সংরক্ষণ করুন"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In"
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <article>
     <p>
-      Prochain niveau : {{ annotatedCount }} /
+      {{ $t("game.next_level") }}: {{ annotatedCount }} /
       {{ levelToReach }}
     </p>
   </article>
@@ -25,7 +25,7 @@ export default {
       required: true,
     },
   },
-  data: function () {
+  data: function() {
     return {
       historyAnnotatedCount: 0,
       levelToReach: 20,
@@ -45,7 +45,7 @@ export default {
     },
   },
   computed: {
-    annotatedCount: function () {
+    annotatedCount: function() {
       return this.historyAnnotatedCount + this.sessionAnnotatedCount;
     },
   },
