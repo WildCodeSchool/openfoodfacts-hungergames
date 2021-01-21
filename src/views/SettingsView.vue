@@ -15,7 +15,7 @@
                 {{ lang.toUpperCase() }}
               </option>
             </select>
- 
+ </div>
         <button @click="saveLang">{{ $t("settings.save") }}</button>
 
       </form>
