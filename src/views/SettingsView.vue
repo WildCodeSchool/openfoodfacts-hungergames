@@ -1,7 +1,7 @@
 <template>
 
   <section class="questionContainer">
-    <div>
+
       <h2>{{ $t("settings.settings") }}</h2>
       <form>
  
@@ -15,7 +15,7 @@
                 {{ lang.toUpperCase() }}
               </option>
             </select>
- </div>
+
         <button @click="saveLang">{{ $t("settings.save") }}</button>
 
       </form>
