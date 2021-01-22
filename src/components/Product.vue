@@ -44,7 +44,7 @@ export default {
     update: function () {
       offService.getImage(this.barcode).then((result) => {
         this.images = result.data;
-        
+
         this.loaded = true;
       });
     },
@@ -56,11 +56,34 @@ export default {
   },
   updated(){
     const swiperContainer = this.$refs.swiperContainer;
-    if (this.loaded && this.images.length > 0 && !this.eventListeners) {
+    console.log('update', this.barcode);
+
+    window.addEventListener('keydown', (e) => {
+      console.log(e.keyCode)
+    })
+
+    if(this.eventListeners) {
+
+      const swiperContainer = this.$refs.swiperContainer;
+      const { size, lock, drag, move } = this.eventListeners;
+
+      removeEventListener("resize", size, false);
+
+      swiperContainer.removeEventListener("mousedown", lock, false);
+      swiperContainer.removeEventListener("touchstart", lock, false);
+
+      swiperContainer.removeEventListener("mousemove", drag, false);
+      swiperContainer.removeEventListener("touchmove", drag, false);
+
+      swiperContainer.removeEventListener("mouseup", move, false);
+      swiperContainer.removeEventListener("touchend", move, false);
+    }
+    // if (this.loaded && this.images.length > 0 && !this.eventListeners) {
+     if (this.loaded && this.images.length > 0) {
 
       this.eventListeners = swipeUtils(swiperContainer);
       const { size, lock, drag, move } = this.eventListeners;
-      
+
       addEventListener("resize", size, false);
 
       swiperContainer.addEventListener("mousedown", lock, false);
@@ -74,19 +97,6 @@ export default {
     }
   },
   beforeDestroy() {
-    const swiperContainer = this.$refs.swiperContainer;
-    const { size, lock, drag, move } = this.eventListeners;
-
-    removeEventListener("resize", size, false);
-
-    swiperContainer.removeEventListener("mousedown", lock, false);
-    swiperContainer.removeEventListener("touchstart", lock, false);
-
-    swiperContainer.removeEventListener("mousemove", drag, false);
-    swiperContainer.removeEventListener("touchmove", drag, false);
-
-    swiperContainer.removeEventListener("mouseup", move, false);
-    swiperContainer.removeEventListener("touchend", move, false);
   }
 };
 </script>

@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 export default function(_C) {
   const N = _C.children.length;
   const NF = 30;
@@ -28,6 +29,7 @@ export default function(_C) {
   }
 
   function ani(cf = 0) {
+    // console.log('ani', cf, ini, fin, anf)
     _C.style.setProperty(
       "--i",
       ini + (fin - ini) * TFN["bounce-out"](cf / anf)
@@ -56,6 +58,7 @@ export default function(_C) {
     if (locked) {
       let dx = unify(e).clientX - x0,
         f = +(dx / w).toFixed(2);
+        // console.log('drag', f, i - f);
 
       _C.style.setProperty("--i", i - f);
     }
@@ -66,16 +69,17 @@ export default function(_C) {
       let dx = unify(e).clientX - x0,
         s = Math.sign(dx),
         f = +((s * dx) / w).toFixed(2);
-
+      // console.log('move before recalc f', f)
       ini = i - s * f;
 
       if ((i > 0 || s < 0) && (i < N - 1 || s > 0) && f > 0.2) {
         i -= s;
         f = 1 - f;
       }
+      // console.log('move after recalc f', f)
 
       fin = i;
-      anf = Math.round(f * NF);
+      anf = Math.min(NF, Math.abs(Math.round(f * NF)));
       n = 2 + Math.round(f);
       ani();
       x0 = null;
