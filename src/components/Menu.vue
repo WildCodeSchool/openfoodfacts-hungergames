@@ -24,9 +24,9 @@
           {{ this.$t("questions.category") | capitalize }}
         </router-link>
       </li>
-      <li class="headerItem" @click="setOpen()">Tutoriel</li>
-      <li class="headerItem" @click="setOpen()">Profil</li>
-      <li class="headerItem" @click="setOpen()">Connexion</li>
+      <li class="headerItem" @click="setOpen()">{{ $t("game.tutorial") }}</li>
+      <li class="headerItem" @click="setOpen()">{{ $t("game.profile") }}</li>
+      <li class="headerItem" @click="setOpen()">{{ $t("game.log_in") }}</li>
       <li class="headerItem" @click="setOpen()">
         <router-link
           active-class="active"
@@ -65,7 +65,7 @@
 
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {
       open: false,
       // menu : [
@@ -78,7 +78,7 @@ export default {
     };
   },
   filters: {
-    capitalize: function (value) {
+    capitalize: function(value) {
       if (!value) return "";
       value = value.toString();
       return value.charAt(0).toUpperCase() + value.slice(1);

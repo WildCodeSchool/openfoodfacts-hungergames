@@ -4,6 +4,12 @@ import { getLang } from "./settings";
 import { removeEmptyKeys } from "./utils";
 
 export default {
+  getInsightsAnnotated() {
+    return axios
+      .get(`${BACK_API_NODE}/insights/annotate`)
+      .then((results) => results.data);
+  },
+
   annotate(insightId, annotation) {
     return axios.post(
       `${BACK_API_NODE}/insights/annotate`,
