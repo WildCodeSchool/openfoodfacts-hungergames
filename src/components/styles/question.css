@@ -116,3 +116,9 @@
   user-select: none;
   pointer-events: none;
 }
+
+/* It takes both to prevent swipeContainer x&y overflow */
+.product-card {
+  max-width: 100%;
+  overflow-x: hidden;
+}
