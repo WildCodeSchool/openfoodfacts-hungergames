@@ -3,7 +3,7 @@
   <section class="settingsContainer">
 
       <h2 class="settingsTitle">{{ $t("settings.settings") }}</h2>
-      <form  v-on:submit.prevent="search"  class="selectorForm">
+      <form class="selectorForm">
              <label for="langSelector" class="langLabel">{{ $t("settings.language") }}</label>
             <select v-model="selectedLang"  id="langSelector">
               <option
