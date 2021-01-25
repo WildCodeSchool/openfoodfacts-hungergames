@@ -7,6 +7,7 @@
 .imgContainer img {
   max-height: calc(100vh - 18rem);
   max-width: 100%;
+  object-fit: contain;
 }
 
 .questionContainer {
@@ -53,7 +54,6 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  object-fit: contain;
 }
 
 .buttonsContainer {
