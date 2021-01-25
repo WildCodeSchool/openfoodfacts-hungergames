@@ -1,12 +1,11 @@
 <template>
 
-  <section class="questionContainer">
+  <section class="settingsContainer">
 
-      <h2>{{ $t("settings.settings") }}</h2>
-      <form>
- 
-            <div>{{ $t("settings.language") }}</div>
-            <select v-model="selectedLang">
+      <h2 class="settingsTitle">{{ $t("settings.settings") }}</h2>
+      <form class="selectorForm">
+             <label for="langSelector" class="langLabel">{{ $t("settings.language") }}</label>
+            <select v-model="selectedLang"  id="langSelector">
               <option
                 v-for="(lang, i) in langs"
                 :key="`Lang${i}`"
@@ -16,7 +15,7 @@
               </option>
             </select>
 
-        <button @click="saveLang">{{ $t("settings.save") }}</button>
+        <button @click="saveLang" class="langButton">{{ $t("settings.save") }}</button>
 
       </form>
   </section>
