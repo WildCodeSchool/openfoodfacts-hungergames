@@ -21,7 +21,7 @@
   grid-template-rows: max-content max-content max-content;
   grid-gap: 0;
 }
-.questionTopContainer,
+
 .buttonsContainer {
   max-height: 4rem;
 }
@@ -32,21 +32,21 @@
   display: none;
 }
 .currentQuestionContainer {
-  display: grid;
-  justify-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
   align-items: flex-end;
-  grid-template-columns: 65% 35%;
-  grid-gap: 0;
-  margin-bottom: 0.5rem;
+}
+.productQuestion,
+.progressionContainer p {
+  font-size: 1.25rem;
 }
 .productQuestion,
 .productValue,
-.progressionContainer p {
-  font-size: 0.85rem;
-}
 .progressionContainer {
   margin-bottom: 1rem;
 }
+
 .progressionContainer p {
   text-align: center;
 }
