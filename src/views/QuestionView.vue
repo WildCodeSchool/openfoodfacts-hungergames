@@ -118,7 +118,6 @@ export default {
       valueTagTimeout: null,
       currentQuestion: null,
       questionBuffer: [],
-      // lastAnnotations: [],
       sessionAnnotatedCount: 0,
       selectedInsightType: getInitialInsightType(),
       imageRotation: 0,
@@ -161,14 +160,6 @@ export default {
         this.imageRotation = 0;
       }
     },
-    // updateLastAnnotations(question, annotation) {
-    //   this.lastAnnotations.push({
-    //     question,
-    //     annotation,
-    //   });
-
-    // if (this.lastAnnotations.length > 10) this.lastAnnotations.shift();
-    // },
     selectInsightType: function (insightType) {
       this.selectedInsightType = insightType;
       this.valueTag = "";
@@ -191,8 +182,6 @@ export default {
       this.seenInsightIds.add(this.currentQuestion.insight_id);
 
       if (annotation !== -1) {
-        robotoffService.annotate(this.currentQuestion.insight_id, annotation);
-        // this.updateLastAnnotations(this.currentQuestion, annotation);
         saveOneAnnotationLS(this.currentQuestion.insight_id, annotation);
         this.sendLastAnnotationsLS(1);
         this.sessionAnnotatedCount += 1;
