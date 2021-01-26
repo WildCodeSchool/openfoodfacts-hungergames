@@ -1,0 +1,29 @@
+.congratContainer {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.congratContainer p {
+  font-size: 5rem;
+  color: var(--OFFyellow);
+  transform: skew(-10deg, -10deg) scale(0);
+  animation: popup 2s infinite;
+  filter: drop-shadow(2px 2px 2px var(--OFFred))
+    drop-shadow(-2px -2px 2px var(--OFFgreen));
+  /* filter: drop-shadow(-2px -2px 2px var(--OFFgreen)); */
+}
+@keyframes popup {
+  0% {
+    transform: skew(-10deg, -10deg) scale(0);
+  }
+  50% {
+    transform: skew(-10deg, -10deg) scale(24);
+  }
+  100% {
+    transform: skew(-10deg, -10deg) scale(0);
+  }
+}

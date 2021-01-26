@@ -1,3 +1,5 @@
+@import "./popup.css";
+
 .questionContainer,
 .answerContainer {
   width: 100%;

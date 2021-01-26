@@ -4,6 +4,9 @@
       {{ $t("game.next_level") }}: {{ annotatedCount }} /
       {{ levelToReach }}
     </p>
+    <div class="congratContainer">
+        <p class="congrat">Bravo</p>
+  </div>
   </article>
 </template>
 
