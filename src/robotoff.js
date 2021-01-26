@@ -11,13 +11,16 @@ export default {
   },
 
   annotate(insightId, annotation) {
-    return axios.post(
-      `${BACK_API_NODE}/insights/annotate`,
-      new URLSearchParams(
-        `insight_id=${insightId}&annotation=${annotation}&update=1`
-      ),
-      { withCredentials: true }
-    );
+    return axios
+      .post(
+        `${BACK_API_NODE}/insights/annotate`,
+        new URLSearchParams(
+          `insight_id=${insightId}&annotation=${annotation}&update=1`
+        ),
+        { withCredentials: true }
+      )
+      .then(() => false)
+      .catch(() => true);
   },
 
   questions(sortBy, insightTypes, valueTag, brands, country, count = 10) {

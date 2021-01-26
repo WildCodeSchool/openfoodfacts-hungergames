@@ -82,7 +82,12 @@
 
 <script>
 import robotoffService from "../robotoff";
-import { getUserInsightLocalStorage } from "../utils";
+import {
+  getUserInsightLocalStorage,
+  saveOneAnnotationLS,
+  getAnnotationsLS,
+  saveAnnotationsLS,
+} from "../utils";
 import Product from "../components/Product";
 import LoadingSpinner from "../components/LoadingSpinner";
 import AnnotationCounter from "../components/AnnotationCounter";
@@ -169,12 +174,27 @@ export default {
       this.valueTag = "";
       this.is_fav = false;
     },
+    async sendLastAnnotationsLS(inf) {
+      const annotationsLS = getAnnotationsLS();
+      if (annotationsLS) {
+        const shouldFilter = await Promise.all(
+          annotationsLS.map(async (el, ind) => {
+            if (ind < inf) return true;
+            return await robotoffService.annotate(el.id, el.annotation);
+          })
+        );
+        const newlist = annotationsLS.filter((_, ind) => shouldFilter[ind]);
+        saveAnnotationsLS(newlist);
+      }
+    },
     annotate: function (annotation) {
       this.seenInsightIds.add(this.currentQuestion.insight_id);
 
       if (annotation !== -1) {
         robotoffService.annotate(this.currentQuestion.insight_id, annotation);
         // this.updateLastAnnotations(this.currentQuestion, annotation);
+        saveOneAnnotationLS(this.currentQuestion.insight_id, annotation);
+        this.sendLastAnnotationsLS(1);
         this.sessionAnnotatedCount += 1;
       }
       this.updateCurrentQuestion();
@@ -281,6 +301,7 @@ export default {
     const userids = getUserInsightLocalStorage();
     this.seenInsightIds = new Set(userids.ids);
     this.loadQuestions();
+    this.sendLastAnnotationsLS(0);
 
     const vm = this;
     window.addEventListener("keyup", function (event) {

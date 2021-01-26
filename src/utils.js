@@ -40,12 +40,10 @@ export const saveUserInsightLocalStorage = (count, level, ids) => {
 };
 
 export const getAnnotationsLS = () => {
-  if (!localStorage.annotations) localStorage.annotations = JSON.stringify([]);
-
-  return JSON.parse(localStorage.annotations);
+  return JSON.parse(localStorage.annotations ?? null);
 };
 
-export const saveAnnotationLS = (id, annotation) => {
+export const saveOneAnnotationLS = (id, annotation) => {
   const ret = JSON.parse(localStorage.annotations ?? JSON.stringify([]));
 
   const find_insight = ret.filter((insight, ind) => {
@@ -56,6 +54,11 @@ export const saveAnnotationLS = (id, annotation) => {
     return false;
   });
 
-  if (!find_insight.length) ret.push({ id, annotation });
+  if (!find_insight.length) ret.unshift({ id, annotation });
   localStorage.annotations = JSON.stringify(ret);
+};
+
+export const saveAnnotationsLS = (listAnnotations) => {
+  localStorage.annotations = JSON.stringify(listAnnotations);
+  return;
 };
