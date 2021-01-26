@@ -45,6 +45,9 @@
         <Product :barcode="currentQuestionBarcode" />
       </article>
       <article class="buttonsContainer">
+        <button class="ui button yellow annotate">
+          <img class="buttonImg" src="../assets/back.svg" alt="Back" />
+        </button>
         <button
           data-inverted
           data-tooltip="Shortcut: n"
@@ -60,9 +63,6 @@
           @click="annotate(-1)"
         >
           {{ $t("questions.skip") }}
-        </button>
-        <button class="ui button yellow annotate">
-          <img class="buttonImg" src="../assets/back.svg" alt="Back" />
         </button>
         <button
           data-inverted
@@ -141,6 +141,7 @@ export default {
           rotateRight: 1,
         },
       },
+      // hand: "right",
     };
   },
   methods: {
