@@ -1,18 +1,19 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?m7b5b4');
-  src:  url('fonts/icomoon.eot?m7b5b4#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?m7b5b4') format('truetype'),
-    url('fonts/icomoon.woff?m7b5b4') format('woff'),
-    url('fonts/icomoon.svg?m7b5b4#icomoon') format('svg');
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?m7b5b4");
+  src: url("fonts/icomoon.eot?m7b5b4#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?m7b5b4") format("truetype"),
+    url("fonts/icomoon.woff?m7b5b4") format("woff"),
+    url("fonts/icomoon.svg?m7b5b4#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: "icomoon" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -33,4 +34,12 @@
 }
 .icon-chevron-circle-left:before {
   content: "\e901";
+}
+.icon-circle {
+  color: var(--OFFlightBlue) !important;
+}
+.icon-chevron-circle-left,
+.icon-chevron-circle-right,
+.active {
+  color: var(--OFFmidBlue) !important;
 }
