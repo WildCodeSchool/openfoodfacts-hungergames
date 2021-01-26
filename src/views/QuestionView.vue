@@ -1,20 +1,5 @@
 <template>
   <section class="questionContainer">
-    <!-- <div>
-      <span
-        class="tag"
-        :class="{ selected: insightType === selectedInsightType }"
-        v-for="insightType of availableInsightTypes"
-        :key="insightType"
-        @click="
-            insightType === selectedInsightType ||
-              selectInsightType(insightType)
-          "
-      >
-        {{ $t("questions." + insightType) }} |
-      </span>
-    </div> -->
-
     <div v-if="currentQuestion && !noRemainingQuestion" class="answerContainer">
       <div class="questionTopContainer">
         <article class="currentQuestionContainer">
