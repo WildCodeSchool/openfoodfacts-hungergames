@@ -11,10 +11,9 @@
   font-size: 5rem;
   color: var(--OFFyellow);
   transform: skew(-10deg, -10deg) scale(0);
-  animation: popup 2s infinite;
+  animation: popup 1.5s infinite;
   filter: drop-shadow(2px 2px 2px var(--OFFred))
     drop-shadow(-2px -2px 2px var(--OFFgreen));
-  /* filter: drop-shadow(-2px -2px 2px var(--OFFgreen)); */
 }
 @keyframes popup {
   0% {
