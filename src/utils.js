@@ -32,10 +32,19 @@ export const saveUserInsightLocalStorage = (count, level, ids) => {
   if (count) ret.count = count;
   if (level) ret.level = level;
   if (Array.isArray(ids)) ret.ids = ids;
-  else {
-    if (ids) ret.ids.push(ids);
-    else ret.ids = [ids];
+  else if (ids) {
+    if (ret.ids) {
+      if (!ret.ids.includes(ids)) ret.ids.push(ids);
+    } else ret.ids = [ids];
   }
+  localStorage.userInsight = JSON.stringify(ret);
+};
+
+export const deleteUserInsghtLocalStorage = (id) => {
+  const ret = JSON.parse(localStorage.userInsight ?? null);
+
+  if (!ret) return;
+  ret.ids = ret.ids.filter((el) => el !== id);
   localStorage.userInsight = JSON.stringify(ret);
 };
 

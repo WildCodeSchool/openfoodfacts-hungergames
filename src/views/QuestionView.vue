@@ -22,7 +22,8 @@
         <AnnotationCounter
           class="progressionContainer"
           :currentInsightId="currentQuestion.insight_id"
-          :sessionAnnotatedCount="sessionAnnotatedCount"
+          :annotatedCount="insightsLocalStorage.count"
+          :level="insightsLocalStorage.level"
         />
       </div>
 
@@ -30,7 +31,13 @@
         <Product :barcode="currentQuestionBarcode" />
       </article>
       <article class="buttonsContainer">
-        <button class="ui button yellow annotate">
+        <button
+          class="ui button yellow annotate"
+          data-inverted
+          data-tooltip="Shortcut: b"
+          @click="backAnnotation()"
+          :disabled="!lastAnnotation"
+        >
           <img class="buttonImg" src="../assets/back.svg" alt="Back" />
         </button>
         <button
@@ -87,6 +94,7 @@ import {
   saveOneAnnotationLS,
   getAnnotationsLS,
   saveAnnotationsLS,
+  saveUserInsightLocalStorage,
 } from "../utils";
 import Product from "../components/Product";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -118,12 +126,13 @@ export default {
       valueTagTimeout: null,
       currentQuestion: null,
       questionBuffer: [],
-      sessionAnnotatedCount: 0,
+      lastAnnotation: null,
       selectedInsightType: getInitialInsightType(),
       imageRotation: 0,
       seenInsightIds: null,
       brandFilter: getURLParam("brand"),
       countryFilter: getURLParam("country"),
+      insightsLocalStorage: getUserInsightLocalStorage(),
       imageZoomOptions: {
         toolbar: {
           rotateLeft: 1,
@@ -178,13 +187,40 @@ export default {
         saveAnnotationsLS(newlist);
       }
     },
+    backAnnotation: function () {
+      this.seenInsightIds.delete(this.lastAnnotation.insight_id);
+      this.questionBuffer.unshift(this.currentQuestion);
+      this.currentQuestion = this.lastAnnotation;
+      this.lastAnnotation = null;
+      saveUserInsightLocalStorage(
+        --this.insightsLocalStorage.count,
+        this.insightsLocalStorage.level,
+        this.currentQuestion.insight_id
+      );
+    },
+    updateUserInsightLocalStorage: function () {
+      if (
+        this.insightsLocalStorage.count + 1 ===
+        this.insightsLocalStorage.level
+      ) {
+        this.insightsLocalStorage.level *= 2;
+        alert(`Palier ${this.level} atteint !! Bravo`);
+      }
+
+      saveUserInsightLocalStorage(
+        ++this.insightsLocalStorage.count,
+        this.insightsLocalStorage.level,
+        this.currentQuestion.insight_id
+      );
+    },
     annotate: function (annotation) {
       this.seenInsightIds.add(this.currentQuestion.insight_id);
 
       if (annotation !== -1) {
+        this.lastAnnotation = { ...this.currentQuestion, annotation };
         saveOneAnnotationLS(this.currentQuestion.insight_id, annotation);
         this.sendLastAnnotationsLS(1);
-        this.sessionAnnotatedCount += 1;
+        this.updateUserInsightLocalStorage();
       }
       this.updateCurrentQuestion();
 
@@ -298,6 +334,7 @@ export default {
         if (event.key === "k") vm.annotate(-1);
         if (event.key === "n") vm.annotate(0);
         if (event.key === "o") vm.annotate(1);
+        if (event.key === "b") vm.backAnnotation();
         if (event.key === "p") vm.rotateImage();
       }
     });
