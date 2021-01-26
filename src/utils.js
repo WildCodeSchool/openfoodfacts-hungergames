@@ -23,7 +23,9 @@ export const getUserInsightLocalStorage = () => {
 };
 
 export const saveUserInsightLocalStorage = (count, level, ids) => {
-  const ret = JSON.parse(localStorage.userInsight);
+  const ret = JSON.parse(
+    localStorage.userInsight ?? JSON.stringify({ count: 0, level: 20, ids: [] })
+  );
   // A retirer - temporaire, au cas ou ids soit encore une string
   if (ret && ret.ids && typeof ret.ids === "string") ret.ids = [];
 
@@ -35,4 +37,25 @@ export const saveUserInsightLocalStorage = (count, level, ids) => {
     else ret.ids = [ids];
   }
   localStorage.userInsight = JSON.stringify(ret);
+};
+
+export const getAnnotationsLS = () => {
+  if (!localStorage.annotations) localStorage.annotations = JSON.stringify([]);
+
+  return JSON.parse(localStorage.annotations);
+};
+
+export const saveAnnotationLS = (id, annotation) => {
+  const ret = JSON.parse(localStorage.annotations ?? JSON.stringify([]));
+
+  const find_insight = ret.filter((insight, ind) => {
+    if (insight.id === id) {
+      ret[ind].annotation = annotation;
+      return true;
+    }
+    return false;
+  });
+
+  if (!find_insight.length) ret.push({ id, annotation });
+  localStorage.annotations = JSON.stringify(ret);
 };
