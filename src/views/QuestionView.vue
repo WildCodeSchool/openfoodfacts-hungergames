@@ -42,9 +42,12 @@
       </div>
 
       <article class="imgContainer">
-        <img :class="[imageRotationClassName]" :src="currentQuestionImageUrl" />
+        <Product :barcode="currentQuestionBarcode" />
       </article>
       <article class="buttonsContainer">
+        <button class="ui button yellow annotate">
+          <img class="buttonImg" src="../assets/back.svg" alt="Back" />
+        </button>
         <button
           data-inverted
           data-tooltip="Shortcut: n"
@@ -60,9 +63,6 @@
           @click="annotate(-1)"
         >
           {{ $t("questions.skip") }}
-        </button>
-        <button class="ui button yellow annotate">
-          <img class="buttonImg" src="../assets/back.svg" alt="Back" />
         </button>
         <button
           data-inverted
@@ -91,11 +91,6 @@
           </button>
         </div>
       </div>
-    </div>
-
-    <!-- Both divs bellow are hidden but not erased for future use. -->
-    <div class="otherImg">
-      <Product :barcode="currentQuestionBarcode" />
     </div>
   </section>
 </template>
@@ -146,6 +141,7 @@ export default {
           rotateRight: 1,
         },
       },
+      // hand: "right",
     };
   },
   methods: {

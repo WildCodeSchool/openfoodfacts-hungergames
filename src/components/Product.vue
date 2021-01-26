@@ -1,21 +1,20 @@
 <template>
-  <div v-if="loaded" class="product-card">
-    <div v-if="images.length > 0">
-      <viewer :images="images" :options="imageZoomOptions">
-        <img :src="url" v-for="url in images" :key="url" loading="lazy" />
-      </viewer>
-      <div class="ui divider"></div>
-    </div>
+  <div v-show="loaded" class="product-card">
+    <VueWildSwipe :images="images"></VueWildSwipe>
   </div>
 </template>
 
 <script>
+import VueWildSwipe from "./VueWildSwipe";
 import offService from "../off";
 
 export default {
   name: "Product",
+  components: {
+    VueWildSwipe,
+  },
   props: ["barcode"],
-  data: function () {
+  data: function() {
     return {
       images: [],
       loaded: false,
@@ -25,10 +24,15 @@ export default {
           rotateRight: 1,
         },
       },
+      swiperOptions: {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      },
     };
   },
   watch: {
-    barcode: function (value) {
+    barcode: function(value) {
       this.images = [];
       if (value) {
         this.update();
@@ -38,9 +42,10 @@ export default {
     },
   },
   methods: {
-    update: function () {
+    update: function() {
       offService.getImage(this.barcode).then((result) => {
         this.images = result.data;
+
         this.loaded = true;
       });
     },
@@ -52,3 +57,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@import "./styles/icons.css";
+</style>
