@@ -42,7 +42,7 @@
       </div>
 
       <article class="imgContainer">
-        <img :class="[imageRotationClassName]" :src="currentQuestionImageUrl" />
+        <Product :barcode="currentQuestionBarcode" />
       </article>
       <article class="buttonsContainer">
         <button class="ui button yellow annotate">
@@ -91,11 +91,6 @@
           </button>
         </div>
       </div>
-    </div>
-
-    <!-- Both divs bellow are hidden but not erased for future use. -->
-    <div class="otherImg">
-      <Product :barcode="currentQuestionBarcode" />
     </div>
   </section>
 </template>
