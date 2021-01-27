@@ -57,31 +57,7 @@ export default {
         this.randomizeColor =  Math.floor(Math.random() * (this.popUpColors.length + 1));
       }
     }
-    // sessionAnnotatedCount() {
-    //   if (this.annotatedCount+1 === this.level) {
-    //     this.showPopUp = true;
-    //   } else if(this.showPopUp === true){
-    //     this.showPopUp = false;
-    //   }
-    //   console.log(this.showPopUp, this.annotatedCount, this.level);
-    // },
     );
   }
-  
-  // computed: {
-  //   poping: function(){
-  //     return (new Promise())
-  //     .then(
-  //       this.showPopUp = true,
-  //       timeout(2000)
-  //     )
-  //     .then(this.showPopUp = false)
-  //   }
-  // },
-  // mounted() {
-  //   const userInsightLocalStorage = getUserInsightLocalStorage();
-  //   this.historyAnnotatedCount = userInsightLocalStorage.count;
-  //   this.levelToReach = userInsightLocalStorage.level;
-  // },
 }
 </script>

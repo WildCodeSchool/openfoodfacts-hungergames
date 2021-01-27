@@ -214,7 +214,6 @@ export default {
         this.allRanks[this.insightsLocalStorage.level]
       ) {
         this.insightsLocalStorage.level += 1;
-        // alert(`Palier ${this.level} atteint !! Bravo`);
         this.showPopUp = true;
         setTimeout(this.disablePop, 1500);
       }
