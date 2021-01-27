@@ -28,33 +28,41 @@ export default {
     },
     popUpMessages: {
       type: Array,
+      required:true,
       default (){
         return [
       "Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational", "Tremendous", "Wondrous", "Marvelous", "Prodigious", "Stupendous", "Phenomenal", "Colossal", "Legendary"
     ]},},
-  },
-  data: function() {
-    return {
-      showPopUp: false,
-    };
-  },
-  watch: {
-    sessionAnnotatedCount() {
-      if (this.annotatedCount === this.level) {
-        this.poping;
-      }
-    },
-  },
-  computed: {
-    poping: function(){
-      (new Promise())
-      .then(
-        this.showPopUp = true,
-        timeout(2000)
-      )
-      .then(this.showPopUp = false)
+    showPopUp:{
+      type: Boolean,
+      required: true,
     }
   },
+  // data: function() {
+  //   return {
+  //     showPopUp: false,
+  //   };
+  // },
+  // watch: {
+  //   sessionAnnotatedCount() {
+  //     if (this.annotatedCount+1 === this.level) {
+  //       this.showPopUp = true;
+  //     } else if(this.showPopUp === true){
+  //       this.showPopUp = false;
+  //     }
+  //     console.log(this.showPopUp, this.annotatedCount, this.level);
+  //   },
+  // },
+  // computed: {
+  //   poping: function(){
+  //     return (new Promise())
+  //     .then(
+  //       this.showPopUp = true,
+  //       timeout(2000)
+  //     )
+  //     .then(this.showPopUp = false)
+  //   }
+  // },
   // mounted() {
   //   const userInsightLocalStorage = getUserInsightLocalStorage();
   //   this.historyAnnotatedCount = userInsightLocalStorage.count;

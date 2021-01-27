@@ -24,6 +24,7 @@
           :currentInsightId="currentQuestion.insight_id"
           :annotatedCount="insightsLocalStorage.count"
           :level="allRanks[insightsLocalStorage.level]"
+          :showPopUp="showPopUp"
         />
       </div>
 
@@ -122,7 +123,7 @@ export default {
       type: Array,
       default (){
         return [
-      20, 40, 60, 80, 100, 200, 300, 400, 500, 1000, 1500, 2000, 3000, 4000, 5000, 7500, 10000, 25000, 50000, 100000, 150000, 200000, 500000, 1000000, 10000000, 100000000, 1000000000, 10000000000
+      5, 6, 7, 8, 9, 11, 12, 13, 20, 40, 60, 80, 100, 200, 300, 400, 500, 1000, 1500, 2000, 3000, 4000, 5000, 7500, 10000, 25000, 50000, 100000, 150000, 200000, 500000, 1000000, 10000000, 100000000, 1000000000, 10000000000
     ]},},
   },
   data: function () {
@@ -145,6 +146,7 @@ export default {
           rotateRight: 1,
         },
       },
+      showPopUp: false,
       // hand: "right",
     };
   },
@@ -201,15 +203,21 @@ export default {
       if (this.currentQuestion.annotation !== -1)
         this.updateUserInsightLocalStorage(-1);
     },
+    disablePop: function(){
+      if (this.showPopUp===true){
+        this.showPopUp=false;
+      }
+    },
     checkPopUp: function () {
       if (
         this.insightsLocalStorage.count + 1 ===
         this.allRanks[this.insightsLocalStorage.level]
       ) {
         this.insightsLocalStorage.level += 1;
-        alert(`Palier ${this.level} atteint !! Bravo`);
+        // alert(`Palier ${this.level} atteint !! Bravo`);
+        this.showPopUp = true;
+        setTimeout(this.disablePop, 5000);
       }
-      console.log(this.allRank, this.insightsLocalStorage.level);
     },
     updateUserInsightLocalStorage: function (n) {
       this.insightsLocalStorage.count += n;
