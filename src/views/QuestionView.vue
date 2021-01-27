@@ -23,7 +23,7 @@
           class="progressionContainer"
           :currentInsightId="currentQuestion.insight_id"
           :annotatedCount="insightsLocalStorage.count"
-          :level="insightsLocalStorage.level"
+          :level="allRanks[insightsLocalStorage.level]"
         />
       </div>
 
@@ -118,6 +118,12 @@ export default {
       default: "random",
       validator: (prop) => ["random", "popular"].includes(prop),
     },
+    allRanks:{
+      type: Array,
+      default (){
+        return [
+      20, 40, 60, 80, 100, 200, 300, 400, 500, 1000, 1500, 2000, 3000, 4000, 5000, 7500, 10000, 25000, 50000, 100000, 150000, 200000, 500000, 1000000, 10000000, 100000000, 1000000000, 10000000000
+    ]},},
   },
   data: function () {
     return {
@@ -198,11 +204,12 @@ export default {
     checkPopUp: function () {
       if (
         this.insightsLocalStorage.count + 1 ===
-        this.insightsLocalStorage.level
+        this.allRanks[this.insightsLocalStorage.level]
       ) {
-        this.insightsLocalStorage.level *= 2;
+        this.insightsLocalStorage.level += 1;
         alert(`Palier ${this.level} atteint !! Bravo`);
       }
+      console.log(this.allRank, this.insightsLocalStorage.level);
     },
     updateUserInsightLocalStorage: function (n) {
       this.insightsLocalStorage.count += n;
