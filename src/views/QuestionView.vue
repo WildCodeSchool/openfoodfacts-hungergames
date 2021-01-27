@@ -192,13 +192,10 @@ export default {
       this.questionBuffer.unshift(this.currentQuestion);
       this.currentQuestion = this.lastAnnotation;
       this.lastAnnotation = null;
-      saveUserInsightLocalStorage(
-        --this.insightsLocalStorage.count,
-        this.insightsLocalStorage.level,
-        this.currentQuestion.insight_id
-      );
+      if (this.currentQuestion.annotation !== -1)
+        this.updateUserInsightLocalStorage(-1);
     },
-    updateUserInsightLocalStorage: function () {
+    checkPopUp: function () {
       if (
         this.insightsLocalStorage.count + 1 ===
         this.insightsLocalStorage.level
@@ -206,9 +203,11 @@ export default {
         this.insightsLocalStorage.level *= 2;
         alert(`Palier ${this.level} atteint !! Bravo`);
       }
-
+    },
+    updateUserInsightLocalStorage: function (n) {
+      this.insightsLocalStorage.count += n;
       saveUserInsightLocalStorage(
-        ++this.insightsLocalStorage.count,
+        this.insightsLocalStorage.count,
         this.insightsLocalStorage.level,
         this.currentQuestion.insight_id
       );
@@ -216,12 +215,13 @@ export default {
     annotate: function (annotation) {
       this.seenInsightIds.add(this.currentQuestion.insight_id);
 
+      this.lastAnnotation = { ...this.currentQuestion, annotation };
       if (annotation !== -1) {
-        this.lastAnnotation = { ...this.currentQuestion, annotation };
         saveOneAnnotationLS(this.currentQuestion.insight_id, annotation);
-        this.sendLastAnnotationsLS(1);
-        this.updateUserInsightLocalStorage();
+        this.checkPopUp();
+        this.updateUserInsightLocalStorage(1);
       }
+      this.sendLastAnnotationsLS(annotation !== -1 ? 1 : 0);
       this.updateCurrentQuestion();
 
       if (!this.noRemainingQuestion && this.questionBuffer.length <= 5)
