@@ -9,20 +9,30 @@
 }
 .congratContainer p {
   font-size: 5rem;
-  color: var(--OFFyellow);
-  transform: skew(-10deg, -10deg) scale(0);
+  transform: skew(-10deg, -10deg) scale(24);
   animation: popup 1.5s infinite;
-  filter: drop-shadow(2px 2px 2px var(--OFFred))
-    drop-shadow(-2px -2px 2px var(--OFFgreen));
+  text-shadow: 1px 1px 3px var(--OFFblack), -1px -1px 3px var(--OFFblack);
 }
 @keyframes popup {
   0% {
-    transform: skew(-10deg, -10deg) scale(0);
-  }
-  50% {
     transform: skew(-10deg, -10deg) scale(24);
   }
   100% {
-    transform: skew(-10deg, -10deg) scale(0);
+    transform: skew(-10deg, -10deg) scale(0) rotate(60deg);
   }
+}
+.popYellow {
+  color: var(--OFFyellow);
+}
+.popRed {
+  color: var(--OFFred);
+}
+.popGreen {
+  color: var(--OFFgreen);
+}
+.popLightBlue {
+  color: var(--OFFlightBlue);
+}
+.popMidBlue {
+  color: var(--OFFmidBlue);
 }

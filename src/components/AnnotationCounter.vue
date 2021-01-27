@@ -5,7 +5,7 @@
       {{ level }}
     </p>
     <div class="congratContainer" v-if="showPopUp">
-        <p class="congrat">{{popUpMessages[randomizer]}}</p>
+        <p  v-bind:class="popUpColors[randomizeColor]">{{popUpMessages[randomizer]}}</p>
   </div>
   </article>
 </template>
@@ -32,6 +32,12 @@ export default {
         return [
       "Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational", "Tremendous", "Wondrous", "Marvelous", "Prodigious", "Stupendous", "Phenomenal", "Colossal", "Legendary"
     ]},},
+    popUpColors: {
+      type: Array,
+      default (){
+        return [
+      "popYellow", "popRed", "popGreen", "popLightBlue", "popMidBlue"
+    ]},},
     showPopUp:{
       type: Boolean,
       required: true,
@@ -40,6 +46,7 @@ export default {
   data: function() {
     return {
       randomizer: 0,
+      randomizeColor: 0,
     };
   },
   mounted(){
@@ -47,6 +54,7 @@ export default {
     function randomPop(){
       if (this.showPopUp){
         this.randomizer =  Math.floor(Math.random() * (this.popUpMessages.length + 1));
+        this.randomizeColor =  Math.floor(Math.random() * (this.popUpColors.length + 1));
       }
     }
     // sessionAnnotatedCount() {
