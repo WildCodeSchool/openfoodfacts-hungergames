@@ -27,7 +27,7 @@ const insightTypesNames = {
   brand: "brand",
 };
 
-const randomInsightTypeChoices = ["label", "category", "brand"];
+const randomInsightTypeChoices = ["category", "brand"];
 
 const getRandomInsightType = () =>
   randomInsightTypeChoices[

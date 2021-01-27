@@ -20,11 +20,10 @@ class VanillaSwipe {
             'ease-in-out': function(k) {
               return .5*(Math.sin((k - .5)*Math.PI) + 1)
             }, */
-      'bounce-out': (k, a = 2.75, b = 1.5) => (
-        1
-          - Math.pow(1 - k, a)
-            * Math.abs(Math.cos(Math.pow(k, b) * (this.n + 0.5) * Math.PI))
-      ),
+      "bounce-out": (k, a = 2.75, b = 1.5) =>
+        1 -
+        Math.pow(1 - k, a) *
+          Math.abs(Math.cos(Math.pow(k, b) * (this.n + 0.5) * Math.PI)),
     };
 
     this.size = this.size.bind(this);
@@ -45,13 +44,13 @@ class VanillaSwipe {
 
   ani(cf = 0) {
     this.container.style.setProperty(
-      '--i',
-      this.ini + (this.fin - this.ini) * this.TFN['bounce-out'](cf / this.anf),
+      "--i",
+      this.ini + (this.fin - this.ini) * this.TFN["bounce-out"](cf / this.anf)
     );
 
     if (cf === this.anf) {
       this.stopAni();
-      if (typeof this.onChangeIndex === 'function') {
+      if (typeof this.onChangeIndex === "function") {
         this.onChangeIndex(this.i);
       }
       return;
@@ -72,14 +71,17 @@ class VanillaSwipe {
       const dx = unify(e).clientX - this.x0;
       const f = +(dx / this.w).toFixed(2);
 
-      this.container.style.setProperty('--i', this.i - f);
+      this.container.style.setProperty("--i", this.i - f);
     }
   }
 
   move(e) {
     if (this.locked) {
       const dx = unify(e).clientX - this.x0;
-      if (Math.abs(dx) < 1) return;
+      if (Math.abs(dx) < 1) {
+        this.locked = false;
+        return;
+      }
       const s = Math.sign(dx);
       let f = +((s * dx) / this.w).toFixed(2);
 
@@ -132,37 +134,37 @@ class VanillaSwipe {
   }
 
   bindEventListeners() {
-    window.addEventListener('resize', this.size, false);
+    window.addEventListener("resize", this.size, false);
 
-    this.container.addEventListener('mousedown', this.lock, false);
-    this.container.addEventListener('touchstart', this.lock, false);
+    this.container.addEventListener("mousedown", this.lock, false);
+    this.container.addEventListener("touchstart", this.lock, false);
 
-    this.container.addEventListener('mousemove', this.drag, false);
-    this.container.addEventListener('touchmove', this.drag, false);
+    this.container.addEventListener("mousemove", this.drag, false);
+    this.container.addEventListener("touchmove", this.drag, false);
 
-    this.container.addEventListener('mouseup', this.move, false);
-    this.container.addEventListener('touchend', this.move, false);
+    this.container.addEventListener("mouseup", this.move, false);
+    this.container.addEventListener("touchend", this.move, false);
   }
 
   unbindEventListeners() {
-    window.removeEventListener('resize', this.size, false);
+    window.removeEventListener("resize", this.size, false);
 
-    this.container.removeEventListener('mousedown', this.lock, false);
-    this.container.removeEventListener('touchstart', this.lock, false);
+    this.container.removeEventListener("mousedown", this.lock, false);
+    this.container.removeEventListener("touchstart", this.lock, false);
 
-    this.container.removeEventListener('mousemove', this.drag, false);
-    this.container.removeEventListener('touchmove', this.drag, false);
+    this.container.removeEventListener("mousemove", this.drag, false);
+    this.container.removeEventListener("touchmove", this.drag, false);
 
-    this.container.removeEventListener('mouseup', this.move, false);
-    this.container.removeEventListener('touchend', this.move, false);
+    this.container.removeEventListener("mouseup", this.move, false);
+    this.container.removeEventListener("touchend", this.move, false);
   }
 
   bindKeyEventListeners() {
-    window.addEventListener('keyup', this.keyup, false);
+    window.addEventListener("keyup", this.keyup, false);
   }
 
   unbindKeyEventListeners() {
-    window.removeEventListener('keyup', this.keyup, false);
+    window.removeEventListener("keyup", this.keyup, false);
   }
 
   refreshNumImages(numImages) {
@@ -171,8 +173,8 @@ class VanillaSwipe {
     this.x0 = null;
     this.locked = false;
     this.rID = null;
-    this.container.style.setProperty('--i', 0);
-    this.container.style.setProperty('--n', this.N);
+    this.container.style.setProperty("--i", 0);
+    this.container.style.setProperty("--n", this.N);
   }
 }
 

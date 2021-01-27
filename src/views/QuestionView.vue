@@ -1,20 +1,5 @@
 <template>
   <section class="questionContainer">
-    <!-- <div>
-      <span
-        class="tag"
-        :class="{ selected: insightType === selectedInsightType }"
-        v-for="insightType of availableInsightTypes"
-        :key="insightType"
-        @click="
-            insightType === selectedInsightType ||
-              selectInsightType(insightType)
-          "
-      >
-        {{ $t("questions." + insightType) }} |
-      </span>
-    </div> -->
-
     <div v-if="currentQuestion && !noRemainingQuestion" class="answerContainer">
       <div class="questionTopContainer">
         <article class="currentQuestionContainer">
@@ -37,7 +22,8 @@
         <AnnotationCounter
           class="progressionContainer"
           :currentInsightId="currentQuestion.insight_id"
-          :sessionAnnotatedCount="sessionAnnotatedCount"
+          :annotatedCount="insightsLocalStorage.count"
+          :level="insightsLocalStorage.level"
         />
       </div>
 
@@ -45,7 +31,13 @@
         <Product :barcode="currentQuestionBarcode" />
       </article>
       <article class="buttonsContainer">
-        <button class="ui button yellow annotate">
+        <button
+          class="ui button yellow annotate"
+          data-inverted
+          data-tooltip="Shortcut: b"
+          @click="backAnnotation()"
+          :disabled="!lastAnnotation"
+        >
           <img class="buttonImg" src="../assets/back.svg" alt="Back" />
         </button>
         <button
@@ -97,7 +89,13 @@
 
 <script>
 import robotoffService from "../robotoff";
-import { getUserInsightLocalStorage } from "../utils";
+import {
+  getUserInsightLocalStorage,
+  saveOneAnnotationLS,
+  getAnnotationsLS,
+  saveAnnotationsLS,
+  saveUserInsightLocalStorage,
+} from "../utils";
 import Product from "../components/Product";
 import LoadingSpinner from "../components/LoadingSpinner";
 import AnnotationCounter from "../components/AnnotationCounter";
@@ -128,13 +126,13 @@ export default {
       valueTagTimeout: null,
       currentQuestion: null,
       questionBuffer: [],
-      // lastAnnotations: [],
-      sessionAnnotatedCount: 0,
+      lastAnnotation: null,
       selectedInsightType: getInitialInsightType(),
       imageRotation: 0,
       seenInsightIds: null,
       brandFilter: getURLParam("brand"),
       countryFilter: getURLParam("country"),
+      insightsLocalStorage: getUserInsightLocalStorage(),
       imageZoomOptions: {
         toolbar: {
           rotateLeft: 1,
@@ -171,27 +169,59 @@ export default {
         this.imageRotation = 0;
       }
     },
-    // updateLastAnnotations(question, annotation) {
-    //   this.lastAnnotations.push({
-    //     question,
-    //     annotation,
-    //   });
-
-    // if (this.lastAnnotations.length > 10) this.lastAnnotations.shift();
-    // },
     selectInsightType: function (insightType) {
       this.selectedInsightType = insightType;
       this.valueTag = "";
       this.is_fav = false;
     },
+    async sendLastAnnotationsLS(inf) {
+      const annotationsLS = getAnnotationsLS();
+      if (annotationsLS) {
+        const shouldFilter = await Promise.all(
+          annotationsLS.map(async (el, ind) => {
+            if (ind < inf) return true;
+            return await robotoffService.annotate(el.id, el.annotation);
+          })
+        );
+        const newlist = annotationsLS.filter((_, ind) => shouldFilter[ind]);
+        saveAnnotationsLS(newlist);
+      }
+    },
+    backAnnotation: function () {
+      this.seenInsightIds.delete(this.lastAnnotation.insight_id);
+      this.questionBuffer.unshift(this.currentQuestion);
+      this.currentQuestion = this.lastAnnotation;
+      this.lastAnnotation = null;
+      if (this.currentQuestion.annotation !== -1)
+        this.updateUserInsightLocalStorage(-1);
+    },
+    checkPopUp: function () {
+      if (
+        this.insightsLocalStorage.count + 1 ===
+        this.insightsLocalStorage.level
+      ) {
+        this.insightsLocalStorage.level *= 2;
+        alert(`Palier ${this.level} atteint !! Bravo`);
+      }
+    },
+    updateUserInsightLocalStorage: function (n) {
+      this.insightsLocalStorage.count += n;
+      saveUserInsightLocalStorage(
+        this.insightsLocalStorage.count,
+        this.insightsLocalStorage.level,
+        this.currentQuestion.insight_id
+      );
+    },
     annotate: function (annotation) {
       this.seenInsightIds.add(this.currentQuestion.insight_id);
 
+      this.lastAnnotation = { ...this.currentQuestion, annotation };
       if (annotation !== -1) {
-        robotoffService.annotate(this.currentQuestion.insight_id, annotation);
-        // this.updateLastAnnotations(this.currentQuestion, annotation);
-        this.sessionAnnotatedCount += 1;
+        saveOneAnnotationLS(this.currentQuestion.insight_id, annotation);
+        this.checkPopUp();
+        this.updateUserInsightLocalStorage(1);
       }
+      this.sendLastAnnotationsLS(annotation !== -1 ? 1 : 0);
       this.updateCurrentQuestion();
 
       if (!this.noRemainingQuestion && this.questionBuffer.length <= 5)
@@ -296,6 +326,7 @@ export default {
     const userids = getUserInsightLocalStorage();
     this.seenInsightIds = new Set(userids.ids);
     this.loadQuestions();
+    this.sendLastAnnotationsLS(0);
 
     const vm = this;
     window.addEventListener("keyup", function (event) {
@@ -303,6 +334,7 @@ export default {
         if (event.key === "k") vm.annotate(-1);
         if (event.key === "n") vm.annotate(0);
         if (event.key === "o") vm.annotate(1);
+        if (event.key === "b") vm.backAnnotation();
         if (event.key === "p") vm.rotateImage();
       }
     });

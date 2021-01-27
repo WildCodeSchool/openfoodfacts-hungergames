@@ -40,7 +40,7 @@ export default {
     },
   },
   watch: {
-    images: function(newImages, oldImages) {
+    images: function (newImages, oldImages) {
       this.numImages = newImages.length;
       this.currentIndex = 0;
       if (newImages && newImages !== oldImages && newImages.length > 0) {
