@@ -8,7 +8,6 @@ import SettingsView from "./views/SettingsView.vue";
 import "viewerjs/dist/viewer.css";
 import messages from "./i18n/messages";
 import { getLang } from "./settings";
-import vhTrick from "./vhTrick";
 import "./app.css";
 
 Vue.use(VueRouter);
