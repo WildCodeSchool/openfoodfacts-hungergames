@@ -5,7 +5,7 @@
       {{ level }}
     </p>
     <div class="congratContainer" v-if="showPopUp">
-        <p class="congrat">Bravo</p>
+        <p class="congrat">{{popUpMessages[randomizer]}}</p>
   </div>
   </article>
 </template>
@@ -28,7 +28,6 @@ export default {
     },
     popUpMessages: {
       type: Array,
-      required:true,
       default (){
         return [
       "Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational", "Tremendous", "Wondrous", "Marvelous", "Prodigious", "Stupendous", "Phenomenal", "Colossal", "Legendary"
@@ -38,21 +37,35 @@ export default {
       required: true,
     }
   },
-  // data: function() {
-  //   return {
-  //     showPopUp: false,
-  //   };
+  // methods:{
+  //   randomPop(){
+  //     let randomizer =  Math.floor(Math.random() * (this.popUpMessages.length + 1));
+  //     return this.popUpMessages[randomizer];
+  //   }
   // },
-  // watch: {
-  //   sessionAnnotatedCount() {
-  //     if (this.annotatedCount+1 === this.level) {
-  //       this.showPopUp = true;
-  //     } else if(this.showPopUp === true){
-  //       this.showPopUp = false;
-  //     }
-  //     console.log(this.showPopUp, this.annotatedCount, this.level);
-  //   },
-  // },
+  data: function() {
+    return {
+      randomizer: 0,
+    };
+  },
+  watch: {
+    randomPop(){
+      if (this.showPopUp){
+        this.randomizer =  Math.floor(Math.random() * (this.popUpMessages.length + 1));
+      console.log(this.randomizer, this.popUpMessages[this.randomizer])
+      // return randomizer
+      // return this.popUpMessages[randomizer];
+      }
+    }
+    // sessionAnnotatedCount() {
+    //   if (this.annotatedCount+1 === this.level) {
+    //     this.showPopUp = true;
+    //   } else if(this.showPopUp === true){
+    //     this.showPopUp = false;
+    //   }
+    //   console.log(this.showPopUp, this.annotatedCount, this.level);
+    // },
+  },
   // computed: {
   //   poping: function(){
   //     return (new Promise())
