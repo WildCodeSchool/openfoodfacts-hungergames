@@ -37,24 +37,16 @@ export default {
       required: true,
     }
   },
-  // methods:{
-  //   randomPop(){
-  //     let randomizer =  Math.floor(Math.random() * (this.popUpMessages.length + 1));
-  //     return this.popUpMessages[randomizer];
-  //   }
-  // },
   data: function() {
     return {
       randomizer: 0,
     };
   },
-  watch: {
-    randomPop(){
+  mounted(){
+    this.$watch(
+    function randomPop(){
       if (this.showPopUp){
         this.randomizer =  Math.floor(Math.random() * (this.popUpMessages.length + 1));
-      console.log(this.randomizer, this.popUpMessages[this.randomizer])
-      // return randomizer
-      // return this.popUpMessages[randomizer];
       }
     }
     // sessionAnnotatedCount() {
@@ -65,7 +57,9 @@ export default {
     //   }
     //   console.log(this.showPopUp, this.annotatedCount, this.level);
     // },
-  },
+    );
+  }
+  
   // computed: {
   //   poping: function(){
   //     return (new Promise())
