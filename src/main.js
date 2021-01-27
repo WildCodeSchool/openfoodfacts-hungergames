@@ -1,41 +1,45 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import VueI18n from 'vue-i18n'
-import Viewer from 'v-viewer'
-import App from './App.vue'
-import QuestionView from './views/QuestionView.vue'
-import SettingsView from './views/SettingsView.vue'
-import 'viewerjs/dist/viewer.css'
-import messages from './i18n/messages'
-import { getLang } from "./settings";
+import Vue from "vue";
+import VueRouter from "vue-router";
+import VueI18n from "vue-i18n";
+import Viewer from "v-viewer";
+import App from "./App.vue";
+import QuestionView from "./views/QuestionView.vue";
+import SettingsView from "./views/SettingsView.vue";
+import "viewerjs/dist/viewer.css";
+import messages from "./i18n/messages";
+import { getLang, getLaterality } from "./settings";
 import "./app.css";
 
-Vue.use(VueRouter)
-Vue.use(Viewer)
-Vue.use(VueI18n)
-Vue.config.productionTip = false
+Vue.use(VueRouter);
+Vue.use(Viewer);
+Vue.use(VueI18n);
+Vue.config.productionTip = false;
 
+// Droitier / Gaucher
+Vue.prototype.$laterality = getLaterality();
+Vue.prototype.$setLaterality = (lat) => {
+  Vue.prototype.$laterality = lat;
+};
 
 const routes = [
-  { path: '/', redirect: '/questions' },
-  { path: '/questions', component: QuestionView },
-  { path: '/settings', component: SettingsView },
+  { path: "/", redirect: "/questions" },
+  { path: "/questions", component: QuestionView },
+  { path: "/settings", component: SettingsView },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   routes,
 });
-
 
 const i18n = new VueI18n({
   locale: getLang(),
   messages,
-  fallbackLocale: 'en'
-})
+  fallbackLocale: "en",
+});
 
 new Vue({
   router,
   i18n,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");

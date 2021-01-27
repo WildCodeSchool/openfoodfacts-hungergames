@@ -1,20 +1,28 @@
-const STORAGE_KEY = 'hunger-game-settings';
+const STORAGE_KEY = "hunger-game-settings";
 
 export const localSettings = {
-    fetch: function () {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
-    },
-    save: function (settings) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(settings))
-    },
-    update: function (key, value) {
-        const settings = this.fetch();
-        settings[key] = value
-        this.save(settings);
-    }
-}
+  fetch: function() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  },
+  save: function(settings) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+  },
+  update: function(key, value) {
+    const settings = this.fetch();
+    settings[key] = value;
+    this.save(settings);
+  },
+};
 
 export const getLang = () => {
-    const settings = localSettings.fetch();
-    return settings.lang || (navigator.language || navigator.userLanguage).split('-')[0];
-}
+  const settings = localSettings.fetch();
+  return (
+    settings.lang ||
+    (navigator.language || navigator.userLanguage).split("-")[0]
+  );
+};
+
+export const getLaterality = () => {
+  const settings = localSettings.fetch();
+  return settings.laterality || "right";
+};
