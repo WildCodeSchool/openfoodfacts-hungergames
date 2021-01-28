@@ -86,7 +86,10 @@
   "settings": {
     "settings": "Nastavení",
     "language": "Jazyk",
-    "save": "Uložit"
+    "save": "Uložit",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",

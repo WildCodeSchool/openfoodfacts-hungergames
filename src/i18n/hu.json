@@ -86,7 +86,10 @@
   "settings": {
     "settings": "Beállítások",
     "language": "Nyelv",
-    "save": "Mentés"
+    "save": "Mentés",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",

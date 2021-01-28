@@ -86,7 +86,10 @@
   "settings": {
     "settings": "Mga Setting",
     "language": "Wika",
-    "save": "I-save"
+    "save": "I-save",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",

@@ -86,7 +86,10 @@
   "settings": {
     "settings": "Paramètres",
     "language": "Langue",
-    "save": "Enregistrer"
+    "save": "Enregistrer",
+    "laterality": "Latéralité",
+    "left": "Gaucher",
+    "right": "Droitier"
   },
   "game": {
     "next_level": "Prochain niveau",

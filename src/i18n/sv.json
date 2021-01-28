@@ -86,7 +86,10 @@
   "settings": {
     "settings": "Inställningar",
     "language": "Spåk",
-    "save": "Spara"
+    "save": "Spara",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",

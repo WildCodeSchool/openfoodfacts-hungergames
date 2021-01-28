@@ -86,7 +86,10 @@
   "settings": {
     "settings": "การตั้งค่า",
     "language": "ภาษา",
-    "save": "บันทึก"
+    "save": "บันทึก",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",

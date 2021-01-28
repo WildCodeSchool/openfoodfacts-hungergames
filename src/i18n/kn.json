@@ -86,7 +86,10 @@
   "settings": {
     "settings": "ಸೆಟ್ಟಿಂಗ್",
     "language": "ಭಾಷೆ",
-    "save": "ಉಳಿಸು"
+    "save": "ಉಳಿಸು",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",

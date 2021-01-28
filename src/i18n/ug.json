@@ -86,7 +86,10 @@
   "settings": {
     "settings": "تەڭشەك",
     "language": "تىل",
-    "save": "ساقلاش"
+    "save": "ساقلاش",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",

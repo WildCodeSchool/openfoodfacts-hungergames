@@ -86,6 +86,9 @@
   "settings": {
     "settings": "crwdns130014:0crwdne130014:0",
     "language": "crwdns130016:0crwdne130016:0",
-    "save": "crwdns130018:0crwdne130018:0"
+    "save": "crwdns130018:0crwdne130018:0",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   }
 }
