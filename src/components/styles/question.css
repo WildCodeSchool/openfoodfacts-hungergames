@@ -120,8 +120,9 @@
   /* For Safari mobile only */
   .buttonsContainer {
     height: 100%;
-    height: calc(var(--vh, 1vh) * 100 - 90vh);
+    height: calc(var(--vh, 1vh) * 100 - 80vh);
     position: fixed;
-    bottom: 0;
+    bottom: 2vh;
+    max-height: 10vh;
   }
 }
