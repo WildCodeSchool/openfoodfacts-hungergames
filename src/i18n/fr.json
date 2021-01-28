@@ -96,6 +96,7 @@
     "next_level": "Prochain niveau",
     "tutorial": "Tutoriel",
     "profile": "Profil",
-    "log_in": "Connexion"
+    "log_in": "Connexion",
+    "popup_msg": ["Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational",  "Tremendous",  "Wondrous",  "Marvelous",  "Prodigious",  "Stupendous",  "Phenomenal",  "Colossal",  "Legendary" ]
   }
 }
