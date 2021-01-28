@@ -117,6 +117,9 @@
   },
   "share": {
     "share_score": "Partage ton score",
-    "annotated_product": "{count} produits annotés"
+    "annotated_product": "{count} produits annotés",
+    "title": "I've just reached {count} annotations on Open Food Quest !",
+    "description": "I keep annotate products on Open Food Quest so my record is getting bigger and bigger.",
+    "quote": "Can you beat me at that game ?"
   }
 }

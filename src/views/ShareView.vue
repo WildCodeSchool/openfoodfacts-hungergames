@@ -9,9 +9,9 @@
         :key="network.network"
         :style="{ backgroundColor: network.color }"
         :url="sharing.url"
-        :title="sharing.title"
-        :description="sharing.description"
-        :quote="sharing.quote"
+        :title="$t('share.title', { count })"
+        :description="$t('share.description')"
+        :quote="$t('share.quote')"
         :hashtags="sharing.hashtags"
         :twitterUser="sharing.twitterUser"
       >
@@ -30,15 +30,9 @@ export default {
     return {
       count: getUserInsightLocalStorage().count,
       sharing: {
-        // url: "https://news.vuejs.org/issues/180",
+        //TODO: Edit url
         url: "https://test-hunger-game.netlify.app",
-        title:
-          `I've just reached ${getUserInsightLocalStorage().count} annotations on Open Food Quest !`,
-        description:
-          'I keep annotate products on Open Food Quest so my record is getting bigger and bigger.',
-        quote: "Can you beat me at that game ?",
         hashtags: "OpenFoodFacts",
-        twitterUser: "youyuxi",
       },
       networks: [
         {
