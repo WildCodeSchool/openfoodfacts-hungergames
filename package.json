@@ -34,7 +34,7 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-debugger" : "off"
+      "no-debugger": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"
