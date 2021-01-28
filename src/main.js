@@ -5,15 +5,21 @@ import VueSocialSharing from "vue-social-sharing";
 import App from "./App.vue";
 import QuestionView from "./views/QuestionView.vue";
 import SettingsView from "./views/SettingsView.vue";
-import ShareView from "./views/ShareView";
+import ShareView from "./views/ShareView.vue";
 import messages from "./i18n/messages";
-import { getLang } from "./settings";
+import { getLang, getLaterality } from "./settings";
 import "./app.css";
 
 Vue.use(VueSocialSharing);
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 Vue.config.productionTip = false;
+
+// Droitier / Gaucher
+Vue.prototype.$laterality = getLaterality();
+Vue.prototype.$setLaterality = (lat) => {
+  Vue.prototype.$laterality = lat;
+};
 
 const routes = [
   { path: "/", redirect: "/questions" },
