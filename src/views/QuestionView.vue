@@ -68,7 +68,7 @@
 
     <div v-else>
       <LoadingSpinner :show="loading" />
-      <div v-if="noRemainingQuestion">
+      <div v-if="noRemainingQuestion" class="noQuestionContainer">
         <h2>{{ $t("questions.no_questions_remaining") }}</h2>
         <div>
           <!-- :class="{ selected: insightType === selectedInsightType }" -->
