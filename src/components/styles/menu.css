@@ -20,6 +20,9 @@
   border: none;
   background-color: transparent;
 }
+.headerButton:focus {
+  outline: 0;
+}
 .buttonImg {
   margin: auto;
   max-height: 100%;

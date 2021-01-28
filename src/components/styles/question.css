@@ -134,34 +134,34 @@
     bottom: 2vh;
     max-height: 10vh;
   }
-  .noQuestionContainer {
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding: 5rem 1rem 0 1rem;
-  }
-  .noQuestionContainer h2 {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    margin: 1rem 0;
-  }
-  .noQuestionContainer div {
-    width: 100%;
-    height: 6rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin: 0;
-    padding: 0 1.5rem;
-  }
-  .noQuestionContainer div button {
-    max-height: 4rem;
-    width: 6rem;
-  }
+}
+.noQuestionContainer {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 5rem 1rem 0 1rem;
+}
+.noQuestionContainer h2 {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 1rem 0;
+}
+.noQuestionContainer div {
+  width: 100%;
+  height: 6rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0 1.5rem;
+}
+.noQuestionContainer div button {
+  max-height: 4rem;
+  width: 6rem;
 }
