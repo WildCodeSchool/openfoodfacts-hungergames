@@ -7,7 +7,8 @@
 }
 
 .imgContainer img {
-  max-height: calc(100vh - 18rem);
+  max-height: calc(100vh - 20rem);
+  max-height: calc(var(--vh, 1vh) * 100 - 20rem);
   max-width: 100%;
   object-fit: contain;
 }
@@ -27,19 +28,20 @@
   grid-gap: 0;
 }
 
-.buttonsContainer {
-  max-height: 4rem;
-}
-
 .currentQuestionContainer {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: center;
 }
 .productQuestion,
 .progressionContainer p {
   font-size: 1.25rem;
+}
+
+.productQuestion {
+  text-align: center;
+  max-width: 40%;
 }
 .productQuestion,
 .productValue,
@@ -55,7 +57,6 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .buttonsContainer {
@@ -70,6 +71,7 @@
 .buttonsContainer button,
 .noQuestionContainer div button {
   border: none;
+  max-height: 100%;
   height: 100%;
   padding: 0.25rem 0 !important;
   text-align: center;
@@ -122,33 +124,44 @@
   user-select: none;
   pointer-events: none;
 }
-.noQuestionContainer {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 5rem 1rem 0 1rem;
-}
-.noQuestionContainer h2 {
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-  margin: 1rem 0;
-}
-.noQuestionContainer div {
-  width: 100%;
-  height: 6rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0 1.5rem;
-}
-.noQuestionContainer div button {
-  max-height: 4rem;
-  width: 6rem;
+
+@supports (-webkit-touch-callout: none) {
+  /* For Safari mobile only */
+  .buttonsContainer {
+    height: 100%;
+    height: calc(var(--vh, 1vh) * 100 - 80vh);
+    position: fixed;
+    bottom: 2vh;
+    max-height: 10vh;
+  }
+  .noQuestionContainer {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 5rem 1rem 0 1rem;
+  }
+  .noQuestionContainer h2 {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .noQuestionContainer div {
+    width: 100%;
+    height: 6rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+  .noQuestionContainer div button {
+    max-height: 4rem;
+    width: 6rem;
+  }
 }
