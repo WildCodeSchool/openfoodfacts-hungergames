@@ -31,7 +31,7 @@ export default {
       count: getUserInsightLocalStorage().count,
       sharing: {
         // url: "https://news.vuejs.org/issues/180",
-        url: "remote-hungergames.jsrover.wilders.dev",
+        url: "https://test-hunger-game.netlify.app",
         title:
           "Say hi to Vite! A brand new, extremely fast development setup for Vue.",
         description:
