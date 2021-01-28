@@ -1,17 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
-import Viewer from "v-viewer";
 import App from "./App.vue";
 import QuestionView from "./views/QuestionView.vue";
 import SettingsView from "./views/SettingsView.vue";
-import "viewerjs/dist/viewer.css";
 import messages from "./i18n/messages";
 import { getLang } from "./settings";
 import "./app.css";
 
 Vue.use(VueRouter);
-Vue.use(Viewer);
 Vue.use(VueI18n);
 Vue.config.productionTip = false;
 
