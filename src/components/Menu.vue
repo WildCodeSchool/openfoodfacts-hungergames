@@ -31,6 +31,16 @@
         <router-link
           active-class="active"
           class="item"
+          :to="'/share'"
+          :key="this.$t('menu.share')"
+        >
+          {{ this.$t("menu.share") }}
+        </router-link>
+      </li>
+      <li class="headerItem" @click="setOpen()">
+        <router-link
+          active-class="active"
+          class="item"
           :to="'/settings'"
           :key="this.$t('menu.settings')"
         >
