@@ -27,6 +27,7 @@
     "questions": "Spørgsmål",
     "logos": "Logoer",
     "manage": "Håndtér",
+    "share": "Share",
     "insights": "Indblik",
     "settings": "@:settings.settings"
   },
@@ -86,12 +87,16 @@
   "settings": {
     "settings": "Indstillinger",
     "language": "Sprog",
-    "save": "Gem"
+    "save": "Gem",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
   },
   "game": {
     "next_level": "Next level",
     "tutorial": "Tutorial",
     "profile": "Profile",
-    "log_in": "Log In"
+    "log_in": "Log In",
+    "popup_msg": ["Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational",  "Tremendous",  "Wondrous",  "Marvelous",  "Prodigious",  "Stupendous",  "Phenomenal",  "Colossal",  "Legendary" ]
   }
 }

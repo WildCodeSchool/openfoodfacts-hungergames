@@ -27,6 +27,7 @@
     "questions": "Questions",
     "logos": "Logos",
     "manage": "Manage",
+    "share": "Share",
     "insights": "Insights",
     "settings": "@:settings.settings"
   },
@@ -83,10 +84,19 @@
     "search": "Search",
     "number_of_results": "Number of results:"
   },
+  "settings": {
+    "settings": "Settings",
+    "language": "Language",
+    "save": "Save",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
+  },
   "game": {
     "next_level": "Next level",
     "tutorial": "Tutorial",
     "profile": "Profile",
-    "log_in": "Log In"
+    "log_in": "Log In",
+    "popup_msg": ["Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational",  "Tremendous",  "Wondrous",  "Marvelous",  "Prodigious",  "Stupendous",  "Phenomenal",  "Colossal",  "Legendary" ]
   }
 }
