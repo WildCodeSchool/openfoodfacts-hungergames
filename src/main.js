@@ -15,6 +15,12 @@ Vue.use(VueRouter);
 Vue.use(VueI18n);
 Vue.config.productionTip = false;
 
+// Detect Mobile
+Vue.prototype.$isMobile =
+  (window.screen.width < window.outerWidth
+    ? window.screen.width
+    : window.outerWidth) < 500;
+
 const routes = [
   { path: "/", redirect: "/questions" },
   { path: "/questions", component: QuestionView },
