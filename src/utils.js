@@ -17,7 +17,7 @@ export const removeEmptyKeys = (obj) => {
 
 export const getUserInsightLocalStorage = () => {
   if (!localStorage.userInsight)
-    localStorage.userInsight = JSON.stringify({ count: 0, level: 20, ids: [] });
+    localStorage.userInsight = JSON.stringify({ count: 0, level: 0, ids: [] });
 
   return JSON.parse(localStorage.userInsight);
 };

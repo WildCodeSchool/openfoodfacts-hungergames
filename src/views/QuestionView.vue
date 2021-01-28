@@ -23,7 +23,6 @@
           class="progressionContainer"
           :currentInsightId="currentQuestion.insight_id"
           :annotatedCount="insightsLocalStorage.count"
-          :level="insightsLocalStorage.level"
         />
       </div>
 
@@ -69,7 +68,7 @@
 
     <div v-else>
       <LoadingSpinner :show="loading" />
-      <div v-if="noRemainingQuestion">
+      <div v-if="noRemainingQuestion" class="noQuestionContainer">
         <h2>{{ $t("questions.no_questions_remaining") }}</h2>
         <div>
           <!-- :class="{ selected: insightType === selectedInsightType }" -->
@@ -195,15 +194,21 @@ export default {
       if (this.currentQuestion.annotation !== -1)
         this.updateUserInsightLocalStorage(-1);
     },
-    checkPopUp: function () {
-      if (
-        this.insightsLocalStorage.count + 1 ===
-        this.insightsLocalStorage.level
-      ) {
-        this.insightsLocalStorage.level *= 2;
-        alert(`Palier ${this.level} atteint !! Bravo`);
-      }
-    },
+    // disablePop: function(){
+    //   if (this.showPopUp===true){
+    //     this.showPopUp=false;
+    //   }
+    // },
+    // checkPopUp: function () {
+    //   if (
+    //     this.insightsLocalStorage.count + 1 ===
+    //     this.allRanks[this.insightsLocalStorage.level]
+    //   ) {
+    //     this.insightsLocalStorage.level += 1;
+    //     this.showPopUp = true;
+    //     setTimeout(this.disablePop, 1500);
+    //   }
+    // },
     updateUserInsightLocalStorage: function (n) {
       this.insightsLocalStorage.count += n;
       saveUserInsightLocalStorage(
@@ -218,7 +223,7 @@ export default {
       this.lastAnnotation = { ...this.currentQuestion, annotation };
       if (annotation !== -1) {
         saveOneAnnotationLS(this.currentQuestion.insight_id, annotation);
-        this.checkPopUp();
+        // this.checkPopUp();
         this.updateUserInsightLocalStorage(1);
       }
       this.sendLastAnnotationsLS(annotation !== -1 ? 1 : 0);

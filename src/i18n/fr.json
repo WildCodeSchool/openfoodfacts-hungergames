@@ -97,23 +97,7 @@
     "tutorial": "Tutoriel",
     "profile": "Profil",
     "log_in": "Connexion",
-    "popup_msg": [
-      "Wow",
-      "Amazing",
-      "Wonderful",
-      "Impressive",
-      "Great job",
-      "Bravo",
-      "Sensational",
-      "Tremendous",
-      "Wondrous",
-      "Marvelous",
-      "Prodigious",
-      "Stupendous",
-      "Phenomenal",
-      "Colossal",
-      "Legendary"
-    ]
+    "popup_msg": ["Wow", "Génial", "Merveilleux", "Impréssionnant", "Beau boulot", "Bravo", "Sensationnel",  "Énorme",  "Extraordinaire",  "Magnifique",  "Prodigieux",  "Stupéfiant",  "Phénoménal",  "Colossal",  "Légendaire" ]
   },
   "share": {
     "share_score": "Partage ton score",
