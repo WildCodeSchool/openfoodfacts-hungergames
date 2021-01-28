@@ -24,9 +24,16 @@
           {{ this.$t("questions.category") | capitalize }}
         </router-link>
       </li>
-      <li class="headerItem" @click="setOpen()">{{ $t("game.tutorial") }}</li>
-      <li class="headerItem" @click="setOpen()">{{ $t("game.profile") }}</li>
-      <li class="headerItem" @click="setOpen()">{{ $t("game.log_in") }}</li>
+      <li class="headerItem" @click="setOpen()">
+        <router-link
+          active-class="active"
+          class="item"
+          :to="'/share'"
+          :key="this.$t('menu.share')"
+        >
+          {{ this.$t("menu.share") }}
+        </router-link>
+      </li>
       <li class="headerItem" @click="setOpen()">
         <router-link
           active-class="active"

@@ -11,15 +11,17 @@
 <script>
 import Menu from "./components/Menu";
 import { updateInsightLocalStorage } from "./utils/utilsApp";
+import { vhTrick } from "./utils/vhTrick";
 
 export default {
   name: "app",
   components: { Menu },
-  data: function () {
+  data: function() {
     return {};
   },
   mounted() {
     updateInsightLocalStorage();
+    vhTrick();
   },
 };
 </script>

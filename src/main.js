@@ -1,13 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
+import VueSocialSharing from "vue-social-sharing";
 import App from "./App.vue";
 import QuestionView from "./views/QuestionView.vue";
 import SettingsView from "./views/SettingsView.vue";
+import ShareView from "./views/ShareView";
 import messages from "./i18n/messages";
 import { getLang, getLaterality } from "./settings";
 import "./app.css";
 
+Vue.use(VueSocialSharing);
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 Vue.config.productionTip = false;
@@ -17,11 +20,17 @@ Vue.prototype.$laterality = getLaterality();
 Vue.prototype.$setLaterality = (lat) => {
   Vue.prototype.$laterality = lat;
 };
+// Detect Mobile
+Vue.prototype.$isMobile =
+  (window.screen.width < window.outerWidth
+    ? window.screen.width
+    : window.outerWidth) < 500;
 
 const routes = [
   { path: "/", redirect: "/questions" },
   { path: "/questions", component: QuestionView },
   { path: "/settings", component: SettingsView },
+  { path: "/share", component: ShareView },
 ];
 
 const router = new VueRouter({
