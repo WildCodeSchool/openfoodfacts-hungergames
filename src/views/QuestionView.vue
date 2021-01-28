@@ -194,26 +194,11 @@ export default {
       if (this.currentQuestion.annotation !== -1)
         this.updateUserInsightLocalStorage(-1);
     },
-    // disablePop: function(){
-    //   if (this.showPopUp===true){
-    //     this.showPopUp=false;
-    //   }
-    // },
-    // checkPopUp: function () {
-    //   if (
-    //     this.insightsLocalStorage.count + 1 ===
-    //     this.allRanks[this.insightsLocalStorage.level]
-    //   ) {
-    //     this.insightsLocalStorage.level += 1;
-    //     this.showPopUp = true;
-    //     setTimeout(this.disablePop, 1500);
-    //   }
-    // },
     updateUserInsightLocalStorage: function (n) {
       this.insightsLocalStorage.count += n;
       saveUserInsightLocalStorage(
         this.insightsLocalStorage.count,
-        this.insightsLocalStorage.level,
+        null,
         this.currentQuestion.insight_id
       );
     },
@@ -223,7 +208,6 @@ export default {
       this.lastAnnotation = { ...this.currentQuestion, annotation };
       if (annotation !== -1) {
         saveOneAnnotationLS(this.currentQuestion.insight_id, annotation);
-        // this.checkPopUp();
         this.updateUserInsightLocalStorage(1);
       }
       this.sendLastAnnotationsLS(annotation !== -1 ? 1 : 0);

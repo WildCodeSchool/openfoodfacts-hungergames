@@ -14,6 +14,10 @@
 
 <script>
 import { ALL_RANKS } from "../const";
+import {
+  getUserInsightLocalStorage,
+  saveUserInsightLocalStorage,
+} from "../utils";
 export default {
   name: "AnnotationCounter",
   props: {
@@ -57,9 +61,11 @@ export default {
       for (let i = 0; i < ranks.length; i++) {
         if (ranks[i] > this.annotatedCount) {
           fittingRank = ranks[i];
+          saveUserInsightLocalStorage(null, fittingRank, null);
           return fittingRank;
         }
       }
+      return getUserInsightLocalStorage().level;
     },
     setLevel: function () {
       this.level = this.findLevel(ALL_RANKS);
@@ -69,6 +75,17 @@ export default {
         this.showPopUp = true;
         setTimeout(this.disablePop, 1500);
         this.setLevel();
+        this.checkLevelToReach();
+      }
+    },
+    checkLevelToReach: function () {
+      if (!this.level || this.level <= this.annotatedCount) {
+        const insightsLocalStorage = getUserInsightLocalStorage();
+        this.level = insightsLocalStorage.level;
+        if (insightsLocalStorage.level <= this.annotatedCount) {
+          this.level *= 2;
+          saveUserInsightLocalStorage(null, this.level, null);
+        }
       }
     },
   },
@@ -87,6 +104,7 @@ export default {
   },
   mounted() {
     this.setLevel();
+    this.checkLevelToReach();
   },
 };
 </script>
