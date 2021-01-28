@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
+import VueSocialSharing from "vue-social-sharing";
 import App from "./App.vue";
 import QuestionView from "./views/QuestionView.vue";
 import SettingsView from "./views/SettingsView.vue";
@@ -9,6 +10,7 @@ import messages from "./i18n/messages";
 import { getLang } from "./settings";
 import "./app.css";
 
+Vue.use(VueSocialSharing);
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 Vue.config.productionTip = false;
