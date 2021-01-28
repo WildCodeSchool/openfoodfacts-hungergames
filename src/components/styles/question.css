@@ -5,8 +5,8 @@
 }
 
 .imgContainer img {
-  max-height: calc(100vh - 18rem);
-  max-height: calc(var(--vh, 1vh) * 100 - 18rem);
+  max-height: calc(100vh - 20rem);
+  max-height: calc(var(--vh, 1vh) * 100 - 20rem);
   max-width: 100%;
   object-fit: contain;
 }
@@ -61,7 +61,6 @@
   align-items: center;
   grid-template-columns: 22% 22% 22% 22%;
   grid-gap: 0;
-  height: 100%;
 }
 .buttonsContainer button {
   border: none;
@@ -81,7 +80,7 @@
 .buttonsContainer button img {
   width: 60%;
   margin: 0 auto;
-  max-height: 100%;
+  /* max-height: 100%; */
 }
 .red {
   background-color: var(--OFFred) !important;
@@ -121,7 +120,8 @@
   /* For Safari mobile only */
   .buttonsContainer {
     height: 100%;
-    height: calc(var(--vh, 1vh) * 100 - 95vh);
+    height: calc(var(--vh, 1vh) * 100 - 90vh);
+    position: fixed;
     bottom: 0;
   }
 }
