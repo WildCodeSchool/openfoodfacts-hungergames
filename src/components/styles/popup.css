@@ -17,6 +17,9 @@
   0% {
     transform: skew(-10deg, -10deg) scale(24);
   }
+  20% {
+    transform: skew(-10deg, -10deg) scale(12);
+  }
   100% {
     transform: skew(-10deg, -10deg) scale(0) rotate(60deg);
   }
