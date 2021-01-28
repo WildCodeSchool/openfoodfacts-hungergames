@@ -1,6 +1,6 @@
 <template>
   <section class="shareContainer">
-    <h1>Share your score</h1>
+    <h1>{{ $t("share.share_score") }}</h1>
     <div class="share-network-list">
       <ShareNetwork
         v-for="network in networks"
