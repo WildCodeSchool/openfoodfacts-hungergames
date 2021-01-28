@@ -4,7 +4,7 @@
     <p v-if="count > 1">{{ $t("share.annotated_product", { count }) }}</p>
     <div class="share-network-list">
       <ShareNetwork
-        v-for="network in networks"
+        v-for="network in allNetworks"
         :network="network.network"
         :key="network.network"
         :style="{ backgroundColor: network.color }"
@@ -37,7 +37,7 @@ export default {
         description:
           'This week, I’d like to introduce you to "Vite", which means "Fast". It’s a brand new development setup created by Evan You.',
         quote: "The hot reload is so fast it's near instant. - Evan You",
-        hashtags: "vuejs,vite,javascript",
+        hashtags: "OpenFoodFacts",
         twitterUser: "youyuxi",
       },
       networks: [
@@ -65,6 +65,8 @@ export default {
           icon: "far fah fa-lg fa-envelope",
           color: "#333333",
         },
+      ],
+      networksMobile: [
         {
           network: "telegram",
           name: "Telegram",
@@ -85,6 +87,12 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    allNetworks: function () {
+      if (this.$isMobile) return this.networks.concat(this.networksMobile);
+      return this.networks;
+    },
   },
 };
 </script>

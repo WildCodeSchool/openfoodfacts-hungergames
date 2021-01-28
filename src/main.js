@@ -21,6 +21,12 @@ Vue.prototype.$setLaterality = (lat) => {
   Vue.prototype.$laterality = lat;
 };
 
+// Detect Mobile
+Vue.prototype.$isMobile =
+  (window.screen.width < window.outerWidth
+    ? window.screen.width
+    : window.outerWidth) < 500;
+
 const routes = [
   { path: "/", redirect: "/questions" },
   { path: "/questions", component: QuestionView },
