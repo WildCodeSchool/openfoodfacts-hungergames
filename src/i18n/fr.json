@@ -116,6 +116,7 @@
     ]
   },
   "share": {
-    "share_score": "Partage ton score"
+    "share_score": "Partage ton score",
+    "annotated_product": "{count} produits annotés"
   }
 }

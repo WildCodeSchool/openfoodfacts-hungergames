@@ -1,6 +1,7 @@
 <template>
   <section class="shareContainer">
     <h1>{{ $t("share.share_score") }}</h1>
+    <p>{{ $t("share.annotated_product", { count }) }}</p>
     <div class="share-network-list">
       <ShareNetwork
         v-for="network in networks"
@@ -22,10 +23,12 @@
 </template>
 
 <script>
+import { getUserInsightLocalStorage } from "../utils";
 export default {
   name: "ShareView",
   data() {
     return {
+      count: getUserInsightLocalStorage().count,
       sharing: {
         url: "https://news.vuejs.org/issues/180",
         title:

@@ -101,6 +101,7 @@
     "popup_msg": ["Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational",  "Tremendous",  "Wondrous",  "Marvelous",  "Prodigious",  "Stupendous",  "Phenomenal",  "Colossal",  "Legendary" ]
   },
   "share": {
-    "share_score": "Share your score"
+    "share_score": "Share your score",
+    "annotated_product": "{count} annotated products"
   }
 }
