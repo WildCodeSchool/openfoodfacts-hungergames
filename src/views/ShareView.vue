@@ -1,7 +1,7 @@
 <template>
   <section class="shareContainer">
     <h1>{{ $t("share.share_score") }}</h1>
-    <p>{{ $t("share.annotated_product", { count }) }}</p>
+    <p v-if="count > 1">{{ $t("share.annotated_product", { count }) }}</p>
     <div class="share-network-list">
       <ShareNetwork
         v-for="network in networks"
@@ -30,7 +30,8 @@ export default {
     return {
       count: getUserInsightLocalStorage().count,
       sharing: {
-        url: "https://news.vuejs.org/issues/180",
+        // url: "https://news.vuejs.org/issues/180",
+        url: "remote-hungergames.jsrover.wilders.dev",
         title:
           "Say hi to Vite! A brand new, extremely fast development setup for Vue.",
         description:
