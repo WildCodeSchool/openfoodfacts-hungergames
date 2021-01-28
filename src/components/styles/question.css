@@ -67,18 +67,21 @@
   grid-template-columns: 22% 22% 22% 22%;
   grid-gap: 0;
 }
-.buttonsContainer button {
+.buttonsContainer button,
+.noQuestionContainer div button {
   border: none;
   height: 100%;
   padding: 0.25rem 0 !important;
   text-align: center;
   border-radius: 0.3rem !important;
 }
-.buttonsContainer button:hover {
+.buttonsContainer button:hover,
+.noQuestionContainer div button:hover {
   cursor: pointer;
   box-shadow: 0 0 0.1rem 0.1rem var(--OFFblack) !important;
 }
-.buttonsContainer button:active {
+.buttonsContainer button:active,
+.noQuestionContainer div button:active {
   box-shadow: inset 0 0 0.75rem #f9f9f9;
 }
 .buttonsContainer button img {
@@ -88,7 +91,8 @@
 .red {
   background-color: var(--OFFred) !important;
 }
-.blue {
+.blue,
+.noQuestionContainer div button {
   background-color: var(--OFFlightBlue) !important;
   color: var(--OFFblack) !important;
 }
@@ -131,4 +135,20 @@
   width: 100%;
   box-sizing: border-box;
   text-align: center;
+  margin: 1rem 0;
+}
+.noQuestionContainer div {
+  width: 100%;
+  height: 6rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0 1.5rem;
+}
+.noQuestionContainer div button {
+  max-height: 4rem;
+  width: 6rem;
 }
