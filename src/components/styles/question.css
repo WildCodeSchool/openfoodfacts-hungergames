@@ -28,13 +28,18 @@
 
 .currentQuestionContainer {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: center;
 }
 .productQuestion,
 .progressionContainer p {
   font-size: 1.25rem;
+}
+
+.productQuestion {
+  text-align: center;
+  max-width: 40%;
 }
 .productQuestion,
 .productValue,
