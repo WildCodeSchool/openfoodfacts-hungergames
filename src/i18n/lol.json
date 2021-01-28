@@ -27,6 +27,7 @@
     "questions": "crwdns129910:0crwdne129910:0",
     "logos": "crwdns129912:0crwdne129912:0",
     "manage": "crwdns129914:0crwdne129914:0",
+    "share": "Share",
     "insights": "crwdns129916:0crwdne129916:0",
     "settings": "crwdns129918:0crwdne129918:0"
   },
@@ -86,6 +87,16 @@
   "settings": {
     "settings": "crwdns130014:0crwdne130014:0",
     "language": "crwdns130016:0crwdne130016:0",
-    "save": "crwdns130018:0crwdne130018:0"
+    "save": "crwdns130018:0crwdne130018:0",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
+  },
+  "game": {
+    "next_level": "Next level",
+    "tutorial": "Tutorial",
+    "profile": "Profile",
+    "log_in": "Log In",
+    "popup_msg": ["Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational",  "Tremendous",  "Wondrous",  "Marvelous",  "Prodigious",  "Stupendous",  "Phenomenal",  "Colossal",  "Legendary" ]
   }
 }
