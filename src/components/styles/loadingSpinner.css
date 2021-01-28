@@ -2,7 +2,9 @@
   height: 48px;
   width: 48px;
   color: #5a5a5a;
-  position: relative;
+  position: absolute;
+  bottom: 48vh;
+  left: calc(50% - 24px);
   display: inline-block;
   border: 5px solid;
   border-radius: 50%;
