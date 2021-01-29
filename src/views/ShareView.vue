@@ -9,9 +9,9 @@
         :key="network.network"
         :style="{ backgroundColor: network.color }"
         :url="sharing.url"
-        :title="sharing.title"
-        :description="sharing.description"
-        :quote="sharing.quote"
+        :title="$t('share.title', { count })"
+        :description="$t('share.description')"
+        :quote="$t('share.quote')"
         :hashtags="sharing.hashtags"
         :twitterUser="sharing.twitterUser"
       >
@@ -30,15 +30,9 @@ export default {
     return {
       count: getUserInsightLocalStorage().count,
       sharing: {
-        // url: "https://news.vuejs.org/issues/180",
+        //TODO: Edit url
         url: "https://test-hunger-game.netlify.app",
-        title:
-          "Say hi to Vite! A brand new, extremely fast development setup for Vue.",
-        description:
-          'This week, I’d like to introduce you to "Vite", which means "Fast". It’s a brand new development setup created by Evan You.',
-        quote: "The hot reload is so fast it's near instant. - Evan You",
         hashtags: "OpenFoodFacts",
-        twitterUser: "youyuxi",
       },
       networks: [
         {

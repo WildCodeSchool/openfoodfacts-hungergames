@@ -99,24 +99,27 @@
     "log_in": "Connexion",
     "popup_msg": [
       "Wow",
-      "Amazing",
-      "Wonderful",
-      "Impressive",
-      "Great job",
+      "Génial",
+      "Merveilleux",
+      "Impréssionnant",
+      "Beau boulot",
       "Bravo",
-      "Sensational",
-      "Tremendous",
-      "Wondrous",
-      "Marvelous",
-      "Prodigious",
-      "Stupendous",
-      "Phenomenal",
+      "Sensationnel",
+      "Énorme",
+      "Extraordinaire",
+      "Magnifique",
+      "Prodigieux",
+      "Stupéfiant",
+      "Phénoménal",
       "Colossal",
-      "Legendary"
+      "Légendaire"
     ]
   },
   "share": {
     "share_score": "Partage ton score",
-    "annotated_product": "{count} produits annotés"
+    "annotated_product": "{count} produits annotés",
+    "title": "Je viens d'atteindre {count} annotations sur Open Food Quest !",
+    "description": "Je continue à annoter des produits sur Open Food Quest, mon record s'améliore à chaque fois.",
+    "quote": "Pouvez-vous me battre sur ce jeu ?"
   }
 }
