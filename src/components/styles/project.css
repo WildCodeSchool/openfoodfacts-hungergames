@@ -19,7 +19,13 @@
 .projectContainer p {
   padding: 0.25rem 1.5rem;
   text-align: justify;
+  line-height: 110%;
 }
 .projectContainer p a {
   color: var(--OFFmidBlue);
+  font-weight: bold;
+}
+.projectContainer p .projectName {
+  font-weight: bold;
+  color: var(--OFFyellow);
 }

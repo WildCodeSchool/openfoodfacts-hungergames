@@ -40,3 +40,9 @@
   font-size: 1.25rem;
   background-color: var(--OFFlightBlue);
 }
+.headerItem:hover {
+  background-color: var(--OFFmidBlue);
+}
+.headerItem a {
+  color: var(--OFFblack);
+}

@@ -54,6 +54,9 @@
           Projet
         </router-link>
       </li>
+      <li class="headerItem" @click="setOpen()">
+        <a href="https://world.openfoodfacts.org/" title="Open Food Facts website">Open Food Facts</a>
+      </li>
     </ul>
   </nav>
 </template>
