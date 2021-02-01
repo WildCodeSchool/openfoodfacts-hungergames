@@ -4,7 +4,7 @@
   "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
-  "app_name": "Hunger Games v2",
+  "name": "Hunger Games v2",
   "short_name": "Hunger Games",
   "icons": [
     {
