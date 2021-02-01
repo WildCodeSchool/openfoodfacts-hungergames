@@ -20,6 +20,7 @@ Vue.prototype.$laterality = getLaterality();
 Vue.prototype.$setLaterality = (lat) => {
   Vue.prototype.$laterality = lat;
 };
+
 // Detect Mobile
 Vue.prototype.$isMobile =
   (window.screen.width < window.outerWidth

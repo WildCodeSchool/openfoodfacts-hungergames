@@ -6,7 +6,7 @@
           <p class="productQuestion">{{ currentQuestion.question }}</p>
 
           <div v-if="valueTagQuestionsURL" class="productValue">
-            <button class="ui big label" v-on:click="toggleFav">
+            <button class="questionButton questionButtonFocus" v-on:click="toggleFav">
               {{ currentQuestion.value }}
               <i
                 v-bind:class="[is_fav ? 'fas fa-star' : 'far fa-star']"
@@ -15,7 +15,7 @@
             </button>
           </div>
           <div v-else>
-            <div class="ui big label">{{ currentQuestion.value }}</div>
+            <div class="questionButton">{{ currentQuestion.value }}</div>
           </div>
         </article>
 
@@ -133,7 +133,6 @@ import {
 import Product from "../components/Product";
 import LoadingSpinner from "../components/LoadingSpinner";
 import AnnotationCounter from "../components/AnnotationCounter";
-
 
 import {
   updateURLParam,
