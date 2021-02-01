@@ -44,6 +44,16 @@
           {{ this.$t("menu.settings") }}
         </router-link>
       </li>
+      <li class="headerItem" @click="setOpen()">
+        <router-link
+          active-class="active"
+          class="item"
+          :to="'/project'"
+          :key="projet"
+        >
+          Projet
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>

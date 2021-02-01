@@ -6,6 +6,7 @@ import App from "./App.vue";
 import QuestionView from "./views/QuestionView.vue";
 import SettingsView from "./views/SettingsView.vue";
 import ShareView from "./views/ShareView";
+import ProjectView from "./views/ProjectView";
 import messages from "./i18n/messages";
 import { getLang } from "./settings";
 import "./app.css";
@@ -26,6 +27,7 @@ const routes = [
   { path: "/questions", component: QuestionView },
   { path: "/settings", component: SettingsView },
   { path: "/share", component: ShareView },
+  { path: "/project", component: ProjectView },
 ];
 
 const router = new VueRouter({
