@@ -24,14 +24,14 @@
 
 <script>
 import { getUserInsightLocalStorage } from "../utils";
+import { WEBSITE_URL } from "../const";
 export default {
   name: "ShareView",
   data() {
     return {
       count: getUserInsightLocalStorage().count,
       sharing: {
-        //TODO: Edit url
-        url: "https://test-hunger-game.netlify.app",
+        url: WEBSITE_URL,
         hashtags: "OpenFoodFacts",
       },
       networks: [
