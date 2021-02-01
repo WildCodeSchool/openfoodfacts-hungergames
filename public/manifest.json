@@ -1,11 +1,11 @@
 {
   "theme_color": "#00ccff",
   "background_color": "#00ccff",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "app_name": "Hunger Games v2",
-  "short_name": "Hunger Games v2",
+  "short_name": "Hunger Games",
   "icons": [
     {
       "src": "icon.ico",
@@ -18,9 +18,10 @@
       "type": "image/png"
     },
     {
-      "src": "/icon-256x256.png",
+      "src": "/maskable_icon_256.png",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-384x384.png",
@@ -28,9 +29,10 @@
       "type": "image/png"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "/maskable_icon_512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
