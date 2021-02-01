@@ -7,7 +7,7 @@ import QuestionView from "./views/QuestionView.vue";
 import SettingsView from "./views/SettingsView.vue";
 import ShareView from "./views/ShareView";
 import messages from "./i18n/messages";
-import { getLang } from "./settings";
+import { getLang, getLaterality } from "./settings";
 import "./app.css";
 
 Vue.use(VueSocialSharing);
@@ -15,6 +15,11 @@ Vue.use(VueRouter);
 Vue.use(VueI18n);
 Vue.config.productionTip = false;
 
+// Droitier / Gaucher
+Vue.prototype.$laterality = getLaterality();
+Vue.prototype.$setLaterality = (lat) => {
+  Vue.prototype.$laterality = lat;
+};
 // Detect Mobile
 Vue.prototype.$isMobile =
   (window.screen.width < window.outerWidth
