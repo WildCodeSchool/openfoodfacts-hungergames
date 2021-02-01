@@ -5,7 +5,7 @@ import VueSocialSharing from "vue-social-sharing";
 import App from "./App.vue";
 import QuestionView from "./views/QuestionView.vue";
 import SettingsView from "./views/SettingsView.vue";
-import ShareView from "./views/ShareView.vue";
+import ShareView from "./views/ShareView";
 import messages from "./i18n/messages";
 import { getLang, getLaterality } from "./settings";
 import "./app.css";
