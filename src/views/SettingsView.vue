@@ -18,6 +18,10 @@
         <button @click="saveLang" class="langButton">{{ $t("settings.save") }}</button>
 
       </form>
+      <div class="pwaContainer">
+        <h3>Installer Nom de l'app sur votre smartphone</h3>
+        <p>Vous pouvez installer Nom de l'app directement sur l'écran d'accueil de votre smartphone. Pour les appareils sous Android, il faut entrer dans le menu du navigateur et choisir "installer" ou "ajouter à l'écran d'accueil", selon les navigateurs. Sur iOS, il suffit de cliquer sur l'icône "partager" puis sur "sur l'écran d'accueil".</p>
+      </div>
   </section>
 </template>
 
