@@ -38,10 +38,16 @@
 .headerItem {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
-  background-color: var(--OFFlightBlue);
+  background-color: var(--OFFyellow);
+}
+.headerGame {
+  background-color: var(--OFFred);
+}
+.headerExternal {
+  background-color: var(--OFFgreen);
 }
 .headerItem:hover {
-  background-color: var(--OFFmidBlue);
+  background-color: var(--OFFlightBlue);
 }
 .headerItem a {
   color: var(--OFFblack);

@@ -4,7 +4,7 @@
       <img class="buttonImg" src="../assets/burger.svg" alt="Menu" />
     </button>
     <ul class="headerList" v-if="open">
-      <li class="headerItem" @click="setOpen()">
+      <li class="headerItem headerGame" @click="setOpen()">
         <router-link
           active-class="active"
           class="item"
@@ -14,7 +14,7 @@
           {{ this.$t("questions.brand") | capitalize }}
         </router-link>
       </li>
-      <li class="headerItem" @click="setOpen()">
+      <li class="headerItem headerGame" @click="setOpen()">
         <router-link
           active-class="active"
           class="item"
@@ -22,6 +22,16 @@
           :key="this.$t('menu.settings')"
         >
           {{ this.$t("questions.category") | capitalize }}
+        </router-link>
+      </li>
+      <li class="headerItem" @click="setOpen()">
+        <router-link
+          active-class="active"
+          class="item"
+          :to="'/project'"
+          :key="projet"
+        >
+          Projet
         </router-link>
       </li>
       <li class="headerItem" @click="setOpen()">
@@ -44,18 +54,8 @@
           {{ this.$t("menu.settings") }}
         </router-link>
       </li>
-      <li class="headerItem" @click="setOpen()">
-        <router-link
-          active-class="active"
-          class="item"
-          :to="'/project'"
-          :key="projet"
-        >
-          Projet
-        </router-link>
-      </li>
-      <li class="headerItem" @click="setOpen()">
-        <a href="https://world.openfoodfacts.org/" title="Open Food Facts website">Open Food Facts</a>
+      <li class="headerItem headerExternal" @click="setOpen()">
+        <a href="https://world.openfoodfacts.org/" title="Open Food Facts website"  target="_blank">Site d'Open Food Facts</a>
       </li>
     </ul>
   </nav>
