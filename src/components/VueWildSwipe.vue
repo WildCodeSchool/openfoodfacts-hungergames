@@ -2,7 +2,7 @@
 import VanillaSwipe from "../utils/vanilla-swipe";
 
 export default {
-  name: "VueWildSwipe", // vue component name
+  name: "VueWildSwipe",
   props: {
     images: {
       type: Array,

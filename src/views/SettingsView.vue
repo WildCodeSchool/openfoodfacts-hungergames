@@ -36,12 +36,23 @@
         </span>
       </div>
     </form>
+    <div class="pwaContainer">
+      <h3>Installer {{ name_app }} sur votre smartphone</h3>
+      <p>
+        Vous pouvez installer {{ name_app }} directement sur l'écran d'accueil
+        de votre smartphone. Pour les appareils sous Android, il faut entrer
+        dans le menu du navigateur et choisir "installer" ou "ajouter à l'écran
+        d'accueil", selon les navigateurs. Sur iOS, il suffit de cliquer sur
+        l'icône "partager" puis sur "sur l'écran d'accueil".
+      </p>
+    </div>
   </section>
 </template>
 
 <script>
 import { localSettings } from "../settings";
 import messages from "../i18n/messages";
+import { NAME_APP } from "../const";
 
 export default {
   name: "SettingsView",
@@ -50,6 +61,7 @@ export default {
     return {
       selectedLang: this.$i18n.locale,
       langs: Object.keys(messages),
+      name_app: NAME_APP,
       selectedLaterality: this.$laterality,
       lateralities: ["right", "left"],
     };

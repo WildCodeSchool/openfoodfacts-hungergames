@@ -31,6 +31,7 @@ a[class^="share-network-"] {
   align-items: center;
   cursor: pointer;
   margin: 10px 0 10px 0;
+  text-decoration: none;
 }
 a[class^="share-network-"] .fah {
   background-color: rgba(0, 0, 0, 0.2);
