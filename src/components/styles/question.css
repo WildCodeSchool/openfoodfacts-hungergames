@@ -29,10 +29,13 @@
 }
 
 .currentQuestionContainer {
+  padding: 0.75rem 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
+  background-color: var(--OFFgreen);
+  /* border: 0.1rem solid var(--OFFblack); */
 }
 .productQuestion,
 .progressionContainer p {
@@ -40,16 +43,18 @@
 }
 
 .productQuestion {
+  font-weight: bold;
   text-align: center;
   max-width: 40%;
 }
-.productQuestion,
-.productValue,
+/* .productQuestion,
+.productValue, */
 .progressionContainer {
   margin-bottom: 1rem;
 }
 
 .progressionContainer p {
+  padding-top: 0.5rem;
   text-align: center;
 }
 .imgContainer {
@@ -167,12 +172,12 @@
 }
 
 .questionButton {
-  background-color: var(--OFFlightBlue);
+  background-color: transparent;
   color: var(--OFFblack);
   font-weight: 700;
   text-align: center;
   padding: 0.75rem 1.5rem;
-  border: none;
+  border: 0.1rem solid var(--OFFblack);
   border-radius: 0.3rem;
 }
 
