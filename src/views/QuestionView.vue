@@ -138,7 +138,6 @@ export default {
           rotateRight: 1,
         },
       },
-      // hand: "right",
     };
   },
   methods: {
