@@ -82,6 +82,17 @@ export default {
     setOpen() {
       this.open = !this.open;
     },
+    close(e) {
+      if (!this.$el.contains(e.target)) {
+        this.open = false;
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener("click", this.close);
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.close);
   },
 };
 </script>
