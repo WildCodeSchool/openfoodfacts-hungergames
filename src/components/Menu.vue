@@ -4,58 +4,61 @@
       <img class="buttonImg" src="../assets/burger.svg" alt="Menu" />
     </button>
     <ul class="headerList" v-if="open">
-      <li class="headerItem headerGame" @click="setOpen()">
-        <router-link
-          active-class="active"
-          class="item"
-          :to="'/questions?type=brand'"
-          :key="this.$t('menu.settings')"
-        >
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/questions?type=brand'"
+        :key="this.$t('menu.settings')"
+      >
+        <li class="headerItem headerGame" @click="setOpen()">
           {{ this.$t("questions.brand") | capitalize }}
-        </router-link>
-      </li>
-      <li class="headerItem headerGame" @click="setOpen()">
-        <router-link
-          active-class="active"
-          class="item"
-          :to="'/questions?type=category'"
-          :key="this.$t('menu.settings')"
-        >
+        </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/questions?type=category'"
+        :key="this.$t('menu.settings')"
+      >
+        <li class="headerItem headerGame" @click="setOpen()">
           {{ this.$t("questions.category") | capitalize }}
-        </router-link>
-      </li>
-      <li class="headerItem" @click="setOpen()">
-        <router-link
-          active-class="active"
-          class="item"
-          :to="'/project'"
-          :key="projet"
-        >
-          Projet
-        </router-link>
-      </li>
-      <li class="headerItem" @click="setOpen()">
-        <router-link
-          active-class="active"
-          class="item"
-          :to="'/share'"
-          :key="this.$t('menu.share')"
-        >
+        </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/project'"
+        :key="projet"
+      >
+        <li class="headerItem" @click="setOpen()">Projet</li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/share'"
+        :key="this.$t('menu.share')"
+      >
+        <li class="headerItem" @click="setOpen()">
           {{ this.$t("menu.share") }}
-        </router-link>
-      </li>
-      <li class="headerItem" @click="setOpen()">
-        <router-link
-          active-class="active"
-          class="item"
-          :to="'/settings'"
-          :key="this.$t('menu.settings')"
-        >
+        </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/settings'"
+        :key="this.$t('menu.settings')"
+      >
+        <li class="headerItem" @click="setOpen()">
           {{ this.$t("menu.settings") }}
-        </router-link>
-      </li>
+        </li>
+      </router-link>
       <li class="headerItem headerExternal" @click="setOpen()">
-        <a href="https://world.openfoodfacts.org/" title="Open Food Facts website"  target="_blank">Site d'Open Food Facts</a>
+        <a
+          href="https://world.openfoodfacts.org/"
+          title="Open Food Facts website"
+          target="_blank"
+          >Site d'Open Food Facts</a
+        >
       </li>
     </ul>
   </nav>
