@@ -11,9 +11,30 @@
         </option>
       </select>
 
-      <button @click="saveLang" class="langButton">
+      <button @click.prevent="saveLang" class="langButton">
         {{ $t("settings.save") }}
       </button>
+
+      <div class="langLabel">
+        <!-- $t{{"laterality"}} -->
+        Laterality:
+        <span
+          class="radio"
+          v-for="(laterality, i) in lateralities"
+          :key="`Laterality${i}`"
+        >
+          <label>
+            <input
+              type="radio"
+              v-model="selectedLaterality"
+              :value="laterality"
+              :name="laterality"
+            />
+            <!-- a modifier selon lang $t{{"lateralities." + laterality}} -->
+            {{ laterality | capitalize }}
+          </label>
+        </span>
+      </div>
     </form>
     <div class="pwaContainer">
       <h3>Installer {{ name_app }} sur votre smartphone</h3>
@@ -41,12 +62,27 @@ export default {
       selectedLang: this.$i18n.locale,
       langs: Object.keys(messages),
       name_app: NAME_APP,
+      selectedLaterality: this.$laterality,
+      lateralities: ["right", "left"],
     };
+  },
+  watch: {
+    selectedLaterality() {
+      this.$setLaterality(this.selectedLaterality);
+      localSettings.update("laterality", this.selectedLaterality);
+    },
   },
   methods: {
     saveLang: function () {
       this.$i18n.locale = this.selectedLang;
       localSettings.update("lang", this.$i18n.locale);
+    },
+  },
+  filters: {
+    capitalize: function (value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
     },
   },
 };

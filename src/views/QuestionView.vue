@@ -6,7 +6,7 @@
           <p class="productQuestion">{{ currentQuestion.question }}</p>
 
           <div v-if="valueTagQuestionsURL" class="productValue">
-            <button class="ui big label" v-on:click="toggleFav">
+            <button class="questionButton questionButtonFocus" v-on:click="toggleFav">
               {{ currentQuestion.value }}
               <i
                 v-bind:class="[is_fav ? 'fas fa-star' : 'far fa-star']"
@@ -15,7 +15,7 @@
             </button>
           </div>
           <div v-else>
-            <div class="ui big label">{{ currentQuestion.value }}</div>
+            <div class="questionButton">{{ currentQuestion.value }}</div>
           </div>
         </article>
 
@@ -29,7 +29,7 @@
       <article class="imgContainer">
         <Product :barcode="currentQuestionBarcode" />
       </article>
-      <article class="buttonsContainer">
+      <article v-if="$laterality === 'right'" class="buttonsContainer">
         <button
           class="ui button yellow annotate"
           data-inverted
@@ -62,6 +62,41 @@
           @click="annotate(1)"
         >
           <img class="buttonImg" src="../assets/yes.svg" alt="Yes" />
+        </button>
+      </article>
+      <article v-else class="buttonsContainer">
+        <button
+          data-inverted
+          data-tooltip="Shortcut: o"
+          class="ui button green annotate"
+          @click="annotate(1)"
+        >
+          <img class="buttonImg" src="../assets/yes.svg" alt="Yes" />
+        </button>
+        <button
+          data-inverted
+          data-tooltip="Shortcut: k"
+          class="ui button blue annotate"
+          @click="annotate(-1)"
+        >
+          {{ $t("questions.skip") }}
+        </button>
+        <button
+          data-inverted
+          data-tooltip="Shortcut: n"
+          class="ui button red annotate"
+          @click="annotate(0)"
+        >
+          <img class="buttonImg" src="../assets/no.svg" alt="No" />
+        </button>
+        <button
+          class="ui button yellow annotate"
+          data-inverted
+          data-tooltip="Shortcut: b"
+          @click="backAnnotation()"
+          :disabled="!lastAnnotation"
+        >
+          <img class="buttonImg" src="../assets/back.svg" alt="Back" />
         </button>
       </article>
     </div>

@@ -7,7 +7,6 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <link rel="manifest" href="manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Open Food Quest" />
     <meta name="apple-mobile-web-app-title" content="Open Food Quest" />
@@ -19,26 +18,25 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link rel="icon" href="/icon.ico" />
+    <link rel="apple-touch-icon" sizes="16x16" href="/icon.ico" />
+    <link rel="apple-touch-icon" sizes="32x32" href="/icon.ico" />
+
+    <meta property="og:url" content="<%= process.env.VUE_APP_WEBSITE_URL %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hunger Game - Open Food Fact" />
+    <meta property="og:image" content="/maskable_icon_x256.png" />
+    <meta
+      property="og:description"
+      content="Hunger Game is an effort to leverage the results of the OCR in a game/tool that's fun to use."
+    />
+
+    <link rel="manifest" href="manifest.json" />
     <title>Hunger Game</title>
     <script
       src="https://kit.fontawesome.com/6dee1a2327.js"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"
-    />
-    <meta property="og:url" content="https://test-hunger-game.netlify.app" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Hunger Game - Open Food Fact" />
-    <meta
-      property="og:image"
-      content="https://hunger.openfoodfacts.org/img/logo.6c31b90b.png"
-    />
-    <meta
-      property="og:description"
-      content="Hunger Game is an effort to leverage the results of the OCR in a game/tool that's fun to use."
-    />
     <style>
       /* http://meyerweb.com/eric/tools/css/reset/ 
       v2.0 | 20110126
