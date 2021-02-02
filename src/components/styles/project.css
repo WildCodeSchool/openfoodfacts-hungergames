@@ -22,6 +22,7 @@
   line-height: 110%;
 }
 .projectContainer p a {
+  text-decoration: none;
   color: var(--OFFmidBlue);
   font-weight: bold;
 }

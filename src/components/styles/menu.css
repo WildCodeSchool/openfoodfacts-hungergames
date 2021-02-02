@@ -50,5 +50,6 @@
   background-color: var(--OFFlightBlue);
 }
 .headerItem a {
+  text-decoration: none;
   color: var(--OFFblack);
 }
