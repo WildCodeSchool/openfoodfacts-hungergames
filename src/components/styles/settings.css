@@ -28,6 +28,7 @@
 .langLabel {
   margin: 1rem 0 0.5rem 0;
   text-align: center;
+  font-family: "Hachi Maru Pop", cursive;
 }
 
 #langSelector {
