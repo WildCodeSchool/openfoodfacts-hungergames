@@ -70,7 +70,9 @@ h1 {
   text-align: left;
   color: var(--OFFwhite);
 }
-
+p {
+  font-weight: 600;
+}
 a {
   text-decoration: none;
 }

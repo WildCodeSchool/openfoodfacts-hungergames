@@ -35,7 +35,6 @@
   justify-content: space-around;
   align-items: center;
   background-color: var(--OFFgreen);
-  /* border: 0.1rem solid var(--OFFblack); */
 }
 .productQuestion,
 .progressionContainer p {
@@ -43,7 +42,7 @@
 }
 
 .productQuestion {
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
   max-width: 40%;
 }
@@ -175,6 +174,7 @@
   background-color: transparent;
   color: var(--OFFblack);
   font-weight: 700;
+  font-size: 1.5rem;
   text-align: center;
   padding: 0.75rem 1.5rem;
   border: 0.1rem solid var(--OFFblack);
