@@ -8,7 +8,7 @@
         active-class="active"
         class="item"
         :to="'/questions?type=brand'"
-        :key="this.$t('menu.settings')"
+        :key="this.$t('questions.brand')"
       >
         <li class="headerItem headerGame" @click="setOpen()">
           {{ this.$t("questions.brand") | capitalize }}
@@ -18,7 +18,7 @@
         active-class="active"
         class="item"
         :to="'/questions?type=category'"
-        :key="this.$t('menu.settings')"
+        :key="this.$t('questions.category')"
       >
         <li class="headerItem headerGame" @click="setOpen()">
           {{ this.$t("questions.category") | capitalize }}
@@ -28,7 +28,7 @@
         active-class="active"
         class="item"
         :to="'/project'"
-        :key="projet"
+        :key="'projet'"
       >
         <li class="headerItem" @click="setOpen()">Projet</li>
       </router-link>

@@ -8,6 +8,7 @@
   align-items: center;
 }
 .congratContainer p {
+  font-family: "Chewy", cursive;
   font-size: 5rem;
   transform: skew(-10deg, -10deg) scale(24);
   animation: popup 1.5s infinite;
