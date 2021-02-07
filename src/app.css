@@ -63,11 +63,11 @@ label {
 }
 h1 {
   box-sizing: border-box;
-  padding: 1rem 0.5rem;
+  padding-top: 0.75rem;
   margin: 0;
   font-size: 2.75rem;
   width: 100%;
-  text-align: left;
+  text-align: center;
   color: var(--OFFwhite);
 }
 p {
