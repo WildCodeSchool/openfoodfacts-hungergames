@@ -3,6 +3,11 @@
 }
 @import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jomhuria&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+
 :root {
   --OFFred: #ff0000;
   --OFFyellow: #ffcc00;
@@ -59,7 +64,7 @@ select {
 p,
 a,
 label {
-  font-family: "Hachi Maru Pop", cursive;
+  font-family: "Bangers", cursive;
 }
 h1 {
   box-sizing: border-box;

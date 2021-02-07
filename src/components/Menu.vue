@@ -27,14 +27,6 @@
       <router-link
         active-class="active"
         class="item"
-        :to="'/project'"
-        :key="'projet'"
-      >
-        <li class="headerItem" @click="setOpen()">Projet</li>
-      </router-link>
-      <router-link
-        active-class="active"
-        class="item"
         :to="'/share'"
         :key="this.$t('menu.share')"
       >
@@ -51,6 +43,14 @@
         <li class="headerItem" @click="setOpen()">
           {{ this.$t("menu.settings") }}
         </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/project'"
+        :key="'projet'"
+      >
+        <li class="headerItem" @click="setOpen()">En savoir plus</li>
       </router-link>
       <li class="headerItem" @click="setOpen()">
         <a
