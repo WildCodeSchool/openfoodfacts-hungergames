@@ -10,7 +10,7 @@
         :to="'/questions?type=brand'"
         :key="this.$t('questions.brand')"
       >
-        <li class="headerItem headerGame" @click="setOpen()">
+        <li class="headerItem" @click="setOpen()">
           {{ this.$t("questions.brand") | capitalize }}
         </li>
       </router-link>
@@ -20,7 +20,7 @@
         :to="'/questions?type=category'"
         :key="this.$t('questions.category')"
       >
-        <li class="headerItem headerGame" @click="setOpen()">
+        <li class="headerItem" @click="setOpen()">
           {{ this.$t("questions.category") | capitalize }}
         </li>
       </router-link>
@@ -52,12 +52,12 @@
           {{ this.$t("menu.settings") }}
         </li>
       </router-link>
-      <li class="headerItem headerExternal" @click="setOpen()">
+      <li class="headerItem" @click="setOpen()">
         <a
           href="https://world.openfoodfacts.org/"
           title="Open Food Facts website"
           target="_blank"
-          >Site d'Open Food Facts</a
+          >🔗 Site d'Open Food Facts</a
         >
       </li>
     </ul>

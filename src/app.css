@@ -76,3 +76,6 @@ p {
 a {
   text-decoration: none;
 }
+a:active {
+  color: var(--OFFwhite);
+}
