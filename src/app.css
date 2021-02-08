@@ -1,12 +1,8 @@
 * {
   box-sizing: border-box;
 }
-@import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Jomhuria&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 
 :root {
   --OFFred: #ff0000;
@@ -45,7 +41,6 @@ body {
 header {
   width: 100%;
   max-height: 4.75rem;
-  /* margin-bottom: 0.5rem; */
   background-color: var(--OFFmidBlue);
   display: grid;
   grid-template-columns: 25% 75%;
@@ -64,7 +59,7 @@ select {
 p,
 a,
 label {
-  font-family: "Bangers", cursive;
+  font-family: "Pangolin", cursive;
 }
 h1 {
   box-sizing: border-box;
