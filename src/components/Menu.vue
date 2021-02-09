@@ -50,14 +50,16 @@
         :to="'/project'"
         :key="'projet'"
       >
-        <li class="headerItem" @click="setOpen()">En savoir plus</li>
+        <li class="headerItem" @click="setOpen()">
+          {{ this.$t("menu.about") }}
+        </li>
       </router-link>
       <li class="headerItem" @click="setOpen()">
         <a
           href="https://world.openfoodfacts.org/"
           title="Open Food Facts website"
           target="_blank"
-          >🔗 Site d'Open Food Facts</a
+          >🔗 Open Food Facts</a
         >
       </li>
     </ul>
