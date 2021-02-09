@@ -27,6 +27,7 @@
     "questions": "Spørgsmål",
     "logos": "Logoer",
     "manage": "Håndtér",
+    "about": "About us",
     "share": "Share",
     "insights": "Indblik",
     "settings": "@:settings.settings"
@@ -97,7 +98,23 @@
     "tutorial": "Tutorial",
     "profile": "Profile",
     "log_in": "Log In",
-    "popup_msg": ["Wow", "Amazing", "Wonderful", "Impressive", "Great job", "Bravo", "Sensational",  "Tremendous",  "Wondrous",  "Marvelous",  "Prodigious",  "Stupendous",  "Phenomenal",  "Colossal",  "Legendary" ]
+    "popup_msg": [
+      "Wow",
+      "Amazing",
+      "Wonderful",
+      "Impressive",
+      "Great job",
+      "Bravo",
+      "Sensational",
+      "Tremendous",
+      "Wondrous",
+      "Marvelous",
+      "Prodigious",
+      "Stupendous",
+      "Phenomenal",
+      "Colossal",
+      "Legendary"
+    ]
   },
   "share": {
     "share_score": "Share your score",

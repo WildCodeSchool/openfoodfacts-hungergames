@@ -16,8 +16,7 @@
       </button>
 
       <div class="langLabel">
-        <!-- $t{{"laterality"}} -->
-        Laterality:
+        {{ $t("settings.laterality") }}
         <span
           class="radio"
           v-for="(laterality, i) in lateralities"
@@ -30,8 +29,7 @@
               :value="laterality"
               :name="laterality"
             />
-            <!-- a modifier selon lang $t{{"lateralities." + laterality}} -->
-            {{ laterality | capitalize }}
+            {{ $t("settings." + laterality) }}
           </label>
         </span>
       </div>
