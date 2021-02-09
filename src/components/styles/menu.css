@@ -36,7 +36,7 @@
   grid-gap: 0;
 }
 .headerItem {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   font-size: 1.25rem;
   background-color: var(--OFFyellow);
   text-decoration: none;
