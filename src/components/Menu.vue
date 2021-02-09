@@ -10,7 +10,7 @@
         :to="'/questions?type=brand'"
         :key="this.$t('questions.brand')"
       >
-        <li class="headerItem headerGame" @click="setOpen()">
+        <li class="headerItem" @click="setOpen()">
           {{ this.$t("questions.brand") | capitalize }}
         </li>
       </router-link>
@@ -20,17 +20,9 @@
         :to="'/questions?type=category'"
         :key="this.$t('questions.category')"
       >
-        <li class="headerItem headerGame" @click="setOpen()">
+        <li class="headerItem" @click="setOpen()">
           {{ this.$t("questions.category") | capitalize }}
         </li>
-      </router-link>
-      <router-link
-        active-class="active"
-        class="item"
-        :to="'/project'"
-        :key="'projet'"
-      >
-        <li class="headerItem" @click="setOpen()">Projet</li>
       </router-link>
       <router-link
         active-class="active"
@@ -52,12 +44,22 @@
           {{ this.$t("menu.settings") }}
         </li>
       </router-link>
-      <li class="headerItem headerExternal" @click="setOpen()">
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/project'"
+        :key="'projet'"
+      >
+        <li class="headerItem" @click="setOpen()">
+          {{ this.$t("menu.about") }}
+        </li>
+      </router-link>
+      <li class="headerItem" @click="setOpen()">
         <a
           href="https://world.openfoodfacts.org/"
           title="Open Food Facts website"
           target="_blank"
-          >Site d'Open Food Facts</a
+          >🔗 Open Food Facts</a
         >
       </li>
     </ul>

@@ -36,20 +36,12 @@
   grid-gap: 0;
 }
 .headerItem {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   font-size: 1.25rem;
   background-color: var(--OFFyellow);
-}
-.headerGame {
-  background-color: var(--OFFred);
-}
-.headerExternal {
-  background-color: var(--OFFgreen);
-}
-.headerItem:hover {
-  background-color: var(--OFFlightBlue);
-}
-.headerItem a {
   text-decoration: none;
   color: var(--OFFblack);
+}
+.headerItem:hover {
+  background-color: var(--OFFgreen);
 }

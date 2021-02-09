@@ -1,6 +1,6 @@
 <template>
   <section class="projectContainer">
-    <h2 class="projectTitle">Le projet</h2>
+    <h2 class="projectTitle">En savoir plus</h2>
     <p>
       <span class="projectName">{{ name_app }}</span> est une application
       proposée par
