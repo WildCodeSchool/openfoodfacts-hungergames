@@ -29,7 +29,8 @@
   max-width: 100%;
 }
 .headerList {
-  width: fit-content;
+  width: 100%;
+  min-width: fit-content;
   list-style: none;
   display: grid;
   grid-template-columns: 100%;
