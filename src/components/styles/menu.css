@@ -8,6 +8,7 @@
   height: 100%;
   z-index: 10;
   background-color: var(--OFFlightBlue);
+  position: relative;
 }
 .headerList:hover,
 .headerButton:hover,
@@ -35,6 +36,7 @@
   display: grid;
   grid-template-columns: 100%;
   grid-gap: 0;
+  position: absolute;
 }
 .headerItem {
   padding: 0.5rem 1.5rem;
