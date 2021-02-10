@@ -4,6 +4,7 @@
   width: 100%;
 }
 .headerNav {
+  max-height: 4rem;
   max-width: 150px;
   height: 100%;
   z-index: 10;
@@ -16,7 +17,6 @@
   cursor: pointer;
 }
 .headerButton {
-  max-height: 4rem;
   height: 3.25rem;
   margin-top: 0.75rem;
   border: none;
