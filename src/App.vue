@@ -11,7 +11,7 @@
 <script>
 import Menu from "./components/Menu";
 import { updateInsightLocalStorage } from "./utils/utilsApp";
-// import { vhTrick } from "./utils/vhTrick";
+import { vhTrick } from "./utils/vhTrick";
 import { NAME_APP } from "./const";
 
 export default {
@@ -24,7 +24,7 @@ export default {
   },
   mounted() {
     updateInsightLocalStorage();
-    // vhTrick();
+    vhTrick();
   },
 };
 </script>
