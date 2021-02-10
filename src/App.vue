@@ -20,11 +20,26 @@ export default {
   data: function () {
     return {
       name_app: NAME_APP,
+      time: null,
     };
+  },
+  methods: {
+    myEventHandler() {
+      clearTimeout(this.time);
+      this.time = setTimeout(function () {
+        vhTrick();
+      }, 200);
+    },
+  },
+  created() {
+    window.addEventListener("resize", this.myEventHandler);
   },
   mounted() {
     updateInsightLocalStorage();
     vhTrick();
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.myEventHandler);
   },
 };
 </script>
