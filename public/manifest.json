@@ -2,6 +2,7 @@
   "theme_color": "#00ccff",
   "background_color": "#00ccff",
   "display": "fullscreen",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "name": "Feed me !",
