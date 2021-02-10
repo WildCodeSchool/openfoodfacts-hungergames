@@ -4,8 +4,8 @@
   "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
-  "name": "Hunger Games v2",
-  "short_name": "Hunger Games",
+  "name": "Feed me !",
+  "short_name": "Feed me !",
   "icons": [
     {
       "src": "icon_x64.ico",
