@@ -1,4 +1,4 @@
-const STORAGE_KEY = "hunger-game-settings";
+const STORAGE_KEY = "feed-me-settings";
 
 export const localSettings = {
   fetch: function() {

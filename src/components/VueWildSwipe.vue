@@ -95,7 +95,7 @@ export default {
 
 .vue-wild-swipe {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 100%;
   position: relative;
 }

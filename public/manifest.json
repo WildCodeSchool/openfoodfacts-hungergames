@@ -2,10 +2,11 @@
   "theme_color": "#00ccff",
   "background_color": "#00ccff",
   "display": "fullscreen",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
-  "name": "Hunger Games v2",
-  "short_name": "Hunger Games",
+  "name": "Feed me !",
+  "short_name": "Feed me !",
   "icons": [
     {
       "src": "icon_x64.ico",

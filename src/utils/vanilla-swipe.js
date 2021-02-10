@@ -9,21 +9,23 @@ class VanillaSwipe {
   constructor(_C) {
     this.container = _C;
     this.TFN = {
-      /* can remove these if not used
-            'linear': function(k) { return k },
-            'ease-in': function(k, e = 1.675) {
-              return Math.pow(k, e)
-            },
-            'ease-out': function(k, e = 1.675) {
-              return 1 - Math.pow(1 - k, e)
-            },
-            'ease-in-out': function(k) {
-              return .5*(Math.sin((k - .5)*Math.PI) + 1)
-            }, */
-      "bounce-out": (k, a = 2.75, b = 1.5) =>
-        1 -
-        Math.pow(1 - k, a) *
-          Math.abs(Math.cos(Math.pow(k, b) * (this.n + 0.5) * Math.PI)),
+      //  can remove these if not used
+      // linear: function(k) {
+      //   return k;
+      // },
+      // "ease-in": function(k, e = 1.675) {
+      //   return Math.pow(k, e);
+      // },
+      "ease-out": function(k, e = 3.675) {
+        return 1 - Math.pow(1 - k, e);
+      },
+      // "ease-in-out": function(k) {
+      //   return 0.5 * (Math.sin((k - 0.5) * Math.PI) + 1);
+      // },
+      // "bounce-out": (k, a = 2.75, b = 1.5) =>
+      //   1 -
+      //   Math.pow(1 - k, a) *
+      //     Math.abs(Math.cos(Math.pow(k, b) * (this.n + 0.5) * Math.PI)),
     };
 
     this.size = this.size.bind(this);
@@ -45,7 +47,7 @@ class VanillaSwipe {
   ani(cf = 0) {
     this.container.style.setProperty(
       "--i",
-      this.ini + (this.fin - this.ini) * this.TFN["bounce-out"](cf / this.anf)
+      this.ini + (this.fin - this.ini) * this.TFN["ease-out"](cf / this.anf)
     );
 
     if (cf === this.anf) {
