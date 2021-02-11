@@ -61,7 +61,7 @@ export default {
       langs: Object.keys(messages),
       name_app: NAME_APP,
       selectedLaterality: this.$laterality,
-      lateralities: ["right", "left"],
+      lateralities: ["left", "right"],
     };
   },
   watch: {
