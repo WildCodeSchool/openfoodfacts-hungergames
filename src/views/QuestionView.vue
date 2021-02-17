@@ -277,8 +277,14 @@ export default {
         )
         .then((result) => {
           let nbNewQuestion = 0;
+          const oldQuestionInsight_id = this.questionBuffer.map(
+            (el) => el.insight_id
+          );
           result.data.questions.forEach((q) => {
-            if (!this.seenInsightIds.has(q.insight_id)) {
+            if (
+              !this.seenInsightIds.has(q.insight_id) &&
+              !oldQuestionInsight_id.some((i) => q.insight_id === i)
+            ) {
               this.questionBuffer.push(q);
               nbNewQuestion++;
             }
