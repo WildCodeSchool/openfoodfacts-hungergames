@@ -1,55 +1,103 @@
 <template>
-  <sui-menu attached="top">
-    <sui-dropdown item icon="bars" simple class="mobile only">
-      <sui-dropdown-menu>
-        <template v-for="item in menu">
-          <sui-dropdown-header v-if="!item.to" :key="item.label">
-            {{item.label}}
-          </sui-dropdown-header>
-          <sui-dropdown-divider v-if="!item.label" :key="item.label"/>
-          <router-link active-class="active" class="item" :to="item.to" :key="item.label" v-if="item.to">
-            {{item.label}}
-          </router-link>
-        </template>
-      </sui-dropdown-menu>
-    </sui-dropdown>
-    <sui-menu-item class="item mobile hidden">
-      <img src="~/../assets/logo.png" >
-    </sui-menu-item>
-    <router-link v-for="item in menuItems" active-class="active" class="item mobile hidden" :to="item.to" :key='item.to'>
-      {{item.label}}
-    </router-link>
-  </sui-menu>
+  <nav class="headerNav">
+    <button class="headerButton" type="button" @click="setOpen()">
+      <img class="buttonImg" src="../assets/burger.svg" alt="Menu" />
+    </button>
+    <ul class="headerList" v-if="open">
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/questions?type=brand'"
+        :key="this.$t('questions.brand')"
+      >
+        <li class="headerItem" @click="setOpen()">
+          {{ this.$t("questions.brand") | capitalize }}
+        </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/questions?type=category'"
+        :key="this.$t('questions.category')"
+      >
+        <li class="headerItem" @click="setOpen()">
+          {{ this.$t("questions.category") | capitalize }}
+        </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/share'"
+        :key="this.$t('menu.share')"
+      >
+        <li class="headerItem" @click="setOpen()">
+          {{ this.$t("menu.share") }}
+        </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/settings'"
+        :key="this.$t('menu.settings')"
+      >
+        <li class="headerItem" @click="setOpen()">
+          {{ this.$t("menu.settings") }}
+        </li>
+      </router-link>
+      <router-link
+        active-class="active"
+        class="item"
+        :to="'/project'"
+        :key="'projet'"
+      >
+        <li class="headerItem" @click="setOpen()">
+          {{ this.$t("menu.about") }}
+        </li>
+      </router-link>
+      <li class="headerItem" @click="setOpen()">
+        <a
+          href="https://world.openfoodfacts.org/"
+          title="Open Food Facts website"
+          target="_blank"
+          >🔗 Open Food Facts</a
+        >
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
-      menu : [
-        {label: this.$t('menu.games')},
-        {label: this.$t('menu.questions'), to:'/questions'},
-        {label: this.$t('menu.logos'), to:'/logos'},
-        // {label: this.$t('menu.nutritions'), to:'/nutritions'},
-        {},
-        {label: this.$t('menu.manage'), type: 'header'},
-        {label: this.$t('menu.insights'), to:'/insights'},
-        {label: this.$t('menu.settings'), to:'/settings'},
-      ]
+      open: false,
     };
   },
-  computed: {
-    menuItems: function() {
-      return this.menu.filter((item) => {
-        return item.to
-      })
-    }
-  }
+  filters: {
+    capitalize: function (value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    },
+  },
+  methods: {
+    setOpen() {
+      this.open = !this.open;
+    },
+    close(e) {
+      if (!this.$el.contains(e.target)) {
+        this.open = false;
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener("click", this.close);
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.close);
+  },
 };
 </script>
-
 <style scoped>
-.menu-container {
-  margin-bottom: 1rem;
-}
+@import "./styles/menu.css";
 </style>

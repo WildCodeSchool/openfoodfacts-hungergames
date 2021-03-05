@@ -1,20 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Hunger Game</title>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
-</head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<body>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <div id="app"></div>
-  <!-- built files will be auto injected -->
-</body>
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Open Food Quest" />
+    <meta name="apple-mobile-web-app-title" content="Open Food Quest" />
+    <meta name="theme-color" content="#00ccff" />
+    <meta name="msapplication-navbutton-color" content="#00ccff" />
 
+    <meta name="msapplication-starturl" content="/" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="/icon.ico" />
+    <link rel="apple-touch-icon" sizes="16x16" href="/icon.ico" />
+    <link rel="apple-touch-icon" href="/maskable_icon_x256.png" />
+
+    <meta property="og:url" content="<%= process.env.VUE_APP_WEBSITE_URL %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Feed me ! - Open Food Fact" />
+    <meta property="og:image" content="/maskable_icon_x256.png" />
+    <meta
+      property="og:description"
+      content="Feed me ! is an effort to leverage the results of the OCR in a game/tool that's fun to use."
+    />
+
+    <link rel="manifest" href="manifest.json" />
+    <title>Feed me !</title>
+    <script
+      src="https://kit.fontawesome.com/6dee1a2327.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* http://meyerweb.com/eric/tools/css/reset/ 
+      v2.0 | 20110126
+      License: none (public domain)
+    */
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        /* font-size: 100%; */
+        /* font: inherit; */
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>

@@ -1,0 +1,9 @@
+{
+  "name": "Open Food Quest - Open Food Facts",
+  "short_name": "Open Food Quest",
+  "lang": "en-en",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#00ccff"
+}

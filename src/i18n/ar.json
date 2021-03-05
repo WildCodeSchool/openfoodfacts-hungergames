@@ -27,6 +27,8 @@
     "questions": "Questions",
     "logos": "Logos",
     "manage": "Manage",
+    "about": "About us",
+    "share": "Share",
     "insights": "Insights",
     "settings": "@:settings.settings"
   },
@@ -86,6 +88,39 @@
   "settings": {
     "settings": "الإعدادات",
     "language": "اللغة",
-    "save": "حفظ"
+    "save": "حفظ",
+    "laterality": "Laterality",
+    "left": "Left-handed",
+    "right": "Right-handed"
+  },
+  "game": {
+    "next_level": "",
+    "tutorial": "",
+    "profile": "",
+    "log_in": "",
+    "popup_msg": [
+      "Wow",
+      "Amazing",
+      "Wonderful",
+      "Impressive",
+      "Great job",
+      "Bravo",
+      "Sensational",
+      "Tremendous",
+      "Wondrous",
+      "Marvelous",
+      "Prodigious",
+      "Stupendous",
+      "Phenomenal",
+      "Colossal",
+      "Legendary"
+    ]
+  },
+  "share": {
+    "share_score": "Share your score",
+    "annotated_product": "{count} annotated products",
+    "title": "I've just reached {count} annotations on Open Food Quest !",
+    "description": "I keep annotate products on Open Food Quest so my record is getting bigger and bigger.",
+    "quote": "Can you beat me at that game ?"
   }
 }

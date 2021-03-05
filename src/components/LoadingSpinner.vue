@@ -1,6 +1,6 @@
 <template>
-  <div :class="{centered: centered}">
-    <div class="ui active inline loader" v-if="show" :class="[size]"></div>
+  <div>
+    <div class="sbl-circ" v-if="show"></div>
   </div>
 </template>
 
@@ -10,26 +10,12 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true
+      required: true,
     },
-    centered: {
-      type: Boolean,
-      required: false,
-      default: true
-    },
-    size: {
-      type: String,
-      required: false,
-      default: 'huge'
-    }
-  }
+  },
 };
 </script>
 
 <style scoped>
-.centered {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+@import "../components/styles/loadingSpinner.css";
 </style>

@@ -1,0 +1,51 @@
+.headerNav,
+.headerButton,
+.headerItem {
+  width: 100%;
+}
+.headerNav {
+  max-height: 4rem;
+  max-width: 150px;
+  height: 100%;
+  z-index: 10;
+  background-color: var(--OFFlightBlue);
+  position: relative;
+}
+.headerList:hover,
+.headerButton:hover,
+.headerItem:hover {
+  cursor: pointer;
+}
+.headerButton {
+  height: 3.25rem;
+  margin-top: 0.5rem;
+  border: none;
+  background-color: transparent;
+}
+.headerButton:focus {
+  outline: 0;
+}
+.buttonImg {
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+.headerList {
+  width: 100%;
+  min-width: fit-content;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 0;
+  position: absolute;
+}
+.headerItem {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.25rem;
+  background-color: var(--OFFyellow);
+  text-decoration: none;
+  color: var(--OFFblack);
+}
+.headerItem:hover {
+  background-color: var(--OFFgreen);
+}

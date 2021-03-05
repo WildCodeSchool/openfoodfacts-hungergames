@@ -9,12 +9,11 @@
   },
   "dependencies": {
     "@yaireo/tagify": "^3.20.3",
-    "axios": "^0.21.0",
-    "semantic-ui-vue": "^0.11.0",
-    "v-viewer": "^1.5.1",
+    "axios": "^0.21.1",
     "vue": "^2.6.12",
     "vue-i18n": "^8.22.1",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.4.9",
+    "vue-social-sharing": "^3.0.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.8",
@@ -34,7 +33,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-debugger": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

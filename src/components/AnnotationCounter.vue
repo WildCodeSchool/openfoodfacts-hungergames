@@ -1,89 +1,110 @@
 <template>
-  <div class="main-column">
-    <h3>{{$t('questions.annotations')}}</h3>
+  <article>
     <p>
-      {{$t('questions.remaining_annotations')}}
-      <strong>{{ remainingCount }}</strong>
+      {{ $t("game.next_level") }}: {{ annotatedCount }} /
+      {{ level }}
     </p>
-    <p>
-      {{$t('questions.annotated_annotations')}}:
-      <strong>{{ annotatedCount }}</strong>
-    </p>
-    <div class="ui divider" />
-    <h3>{{$t('questions.last_annotations')}}</h3>
-    <div v-for="annotation in sortedLastAnnotations" :key="annotation.question.insight_id">
-      <a
-        target="_blank"
-        :href="getProductUrl(annotation.question.barcode)"
-      >{{ annotation.question.insight_type }}: {{ annotation.question.value }}</a>
-      <i v-if="annotation.annotation == 1" class="check green icon"></i>
-      <i v-else-if="annotation.annotation == -1" class="question icon"></i>
-      <i v-else-if="annotation.annotation == 0" class="times red icon"></i>
+    <div class="congratContainer" v-if="showPopUp">
+      <p v-bind:class="popUpColors[randomizeColor]">
+        {{ $t("game.popup_msg")[randomizer] }}
+      </p>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
-import robotoffService from "../robotoff";
-import offService from "../off";
-
+import { ALL_RANKS } from "../const";
+import {
+  getUserInsightLocalStorage,
+  saveUserInsightLocalStorage,
+} from "../utils";
 export default {
   name: "AnnotationCounter",
   props: {
-    remainingCount: {
+    annotatedCount: {
       type: Number,
-      required: true
+      required: true,
     },
-    lastAnnotations: {
+    currentInsightId: {
+      type: String,
+      required: true,
+    },
+    popUpColors: {
       type: Array,
-      required: true
+      default() {
+        return [
+          "popYellow",
+          "popRed",
+          "popGreen",
+          "popLightBlue",
+          "popMidBlue",
+        ];
+      },
     },
-    sessionAnnotatedCount: {
-      type: Number,
-      required: true
-    }
   },
-  data: function() {
+  data: function () {
     return {
-      username: offService.getUsername(),
-      historyAnnotatedCount: 0
+      randomizer: 0,
+      randomizeColor: 0,
+      showPopUp: false,
+      level: 20,
     };
   },
   methods: {
-    getProductUrl: function(barcode) {
-      return offService.getProductUrl(barcode);
-    }
-  },
-  computed: {
-    sortedLastAnnotations: function() {
-      const lastAnnotations = this.lastAnnotations.slice();
-      return lastAnnotations.reverse();
+    disablePop: function () {
+      if (this.showPopUp === true) {
+        this.showPopUp = false;
+      }
     },
-    annotatedCount: function() {
-      return this.historyAnnotatedCount + this.sessionAnnotatedCount;
-    }
+    findLevel: function (ranks) {
+      let fittingRank = 0;
+      for (let i = 0; i < ranks.length; i++) {
+        if (ranks[i] > this.annotatedCount) {
+          fittingRank = ranks[i];
+          saveUserInsightLocalStorage(null, fittingRank, null);
+          return fittingRank;
+        }
+      }
+      return getUserInsightLocalStorage().level;
+    },
+    setLevel: function () {
+      this.level = this.findLevel(ALL_RANKS);
+    },
+    checkPopUp: function () {
+      if (this.annotatedCount === this.level) {
+        this.showPopUp = true;
+        setTimeout(this.disablePop, 1500);
+        this.setLevel();
+        this.checkLevelToReach();
+      }
+    },
+    checkLevelToReach: function () {
+      if (!this.level || this.level <= this.annotatedCount) {
+        const insightsLocalStorage = getUserInsightLocalStorage();
+        this.level = insightsLocalStorage.level;
+        if (insightsLocalStorage.level <= this.annotatedCount) {
+          this.level *= 2;
+          saveUserInsightLocalStorage(null, this.level, null);
+        }
+      }
+    },
+  },
+  watch: {
+    annotatedCount: function () {
+      this.checkPopUp();
+      if (this.showPopUp) {
+        this.randomizer = Math.floor(
+          Math.random() * this.$t("game.popup_msg").length
+        );
+        this.randomizeColor = Math.floor(
+          Math.random() * this.popUpColors.length
+        );
+      }
+    },
   },
   mounted() {
-    if (this.username.length) {
-      robotoffService
-        .getUserStatistics(this.username)
-        .then(result => {
-          this.historyAnnotatedCount = result.data.count.annotations;
-        })
-        .catch(error => window.console.log(error));
-    }
-  }
+    this.setLevel();
+    this.checkLevelToReach();
+  },
 };
 </script>
-
-<style scoped>
-.main-column {
-  padding: 1.5rem 1.5rem;
-  background-color: #686868;
-  color: #ffffff;
-}
-
-a {
-  color: #ffffff;
-}
-</style>

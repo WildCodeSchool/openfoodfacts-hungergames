@@ -1,0 +1,41 @@
+{
+  "theme_color": "#00ccff",
+  "background_color": "#00ccff",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Feed me !",
+  "short_name": "Feed me !",
+  "icons": [
+    {
+      "src": "icon_x64.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/maskable_icon_x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/maskable_icon_x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/maskable_icon_x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
